@@ -6,7 +6,7 @@ import DrugTable from '../../components/drugs/DrugTable.jsx'
 import MixChecker from '../../components/drugs/MixChecker.jsx'
 import { DRUG_GROUPS } from '../drugs.js'
 
-// Capítulo 22 · Vademécum. Los datos se editan en content/drugs.js, interactions.js y combos.js
+// Capítulo 22 · Vademécum. Los datos se editan en content/drugs.js, pharmacology.js, interactions.js y combos.js
 export default function Capitulo22() {
   const [selected, setSelected] = useState([])
 
@@ -18,6 +18,7 @@ export default function Capitulo22() {
   return (
     <>
       <p>Fármacos de uso frecuente en urgencias ordenados por grupo farmacológico, combinaciones habituales y un comprobador de mezclas.</p>
+      <p><strong>Toque el nombre de un fármaco</strong> para ver cuánto demora en hacer efecto, su vida media, mecanismo de acción, metabolismo y reacciones adversas.</p>
       <Callout type="alerta">
         <p><strong>Material pendiente de validación farmacéutica.</strong> Las dosis son orientativas para adultos. Verificar siempre alergias, función renal y hepática, embarazo y el protocolo local antes de prescribir.</p>
       </Callout>

@@ -1,6 +1,7 @@
 import { DRUG_GROUPS, drugById } from '../../content/drugs.js'
 import { AVOID, CAUTION, CONTRA, USUAL } from '../../content/interactions.js'
 import { checkMix } from '../../lib/mix.js'
+import DrugName from './DrugName.jsx'
 
 export const MAX_DRUGS = 8
 
@@ -30,7 +31,7 @@ function Pair({ pair }) {
   return (
     <li className={`!mb-0 list-none rounded-xl border-[1.5px] p-3.5 ${verdict.box}`}>
       <p className="!mb-2 font-semibold">
-        {a.name} + {b.name}
+        <DrugName id={a.id} /> + <DrugName id={b.id} />
       </p>
       <p className="!mb-1 flex flex-wrap items-center gap-2 text-[14px]">
         ¿Indicarlos juntos? <span className={`${badge} ${verdict.badge}`}>{verdict.text}</span>

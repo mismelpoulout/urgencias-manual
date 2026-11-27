@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import DrugModal from './components/drugs/DrugModal.jsx'
 import Book from './components/layout/Book.jsx'
 import ChapterCards from './components/layout/ChapterCards.jsx'
 import Footer from './components/layout/Footer.jsx'
@@ -92,6 +93,7 @@ export default function App() {
       />
       <RunningTimers />
       <Toast message={toast} />
+      <DrugModal />
     </>
   )
 }

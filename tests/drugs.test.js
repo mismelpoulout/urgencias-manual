@@ -3,6 +3,7 @@ import { test } from 'node:test'
 import { COMBOS } from '../src/content/combos.js'
 import { DRUGS, DRUG_GROUPS, drugById } from '../src/content/drugs.js'
 import { AVOID, CAUTION, CONTRA, INTERACTIONS, IV_ANY, IV_INCOMPATIBLE, USUAL } from '../src/content/interactions.js'
+import { PHARMACOLOGY } from '../src/content/pharmacology.js'
 import { checkMix, checkPair } from '../src/lib/mix.js'
 import { sectionIds } from './sections.js'
 
@@ -10,6 +11,13 @@ test('al menos 10 fármacos por grupo, sin repetidos y con ficha completa', () =
   for (const g of DRUG_GROUPS) assert.ok(g.drugs.length >= 10, `${g.id}: ${g.drugs.length}`)
   assert.equal(new Set(DRUGS.map((d) => d.id)).size, DRUGS.length)
   for (const d of DRUGS) assert.ok(d.name && d.dose && d.use && d.caution, d.id)
+})
+
+test('cada fármaco tiene su ficha farmacológica completa y no sobra ninguna', () => {
+  assert.deepEqual(Object.keys(PHARMACOLOGY).sort(), DRUGS.map((d) => d.id).sort())
+  for (const [id, info] of Object.entries(PHARMACOLOGY)) {
+    for (const key of ['mechanism', 'onset', 'halfLife', 'metabolism', 'adverse']) assert.ok(info[key]?.trim(), `${id}: falta ${key}`)
+  }
 })
 
 test('cada regla apunta a fármacos o etiquetas existentes y se aplica a alguna pareja', () => {

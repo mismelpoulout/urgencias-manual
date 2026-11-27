@@ -40,6 +40,9 @@
   * {
     min-width: 0;
   }
+  html:has(dialog[open]) {
+    overflow: hidden; /* la página no se desplaza detrás de un modal */
+  }
   html {
     scroll-padding-top: 84px;
     -webkit-text-size-adjust: 100%;

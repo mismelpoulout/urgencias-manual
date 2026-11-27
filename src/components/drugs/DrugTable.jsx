@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import Table from '../content/Table.jsx'
+import DrugName from './DrugName.jsx'
 
 function DrugTable({ drugs }) {
   return (
@@ -16,7 +17,7 @@ function DrugTable({ drugs }) {
         {drugs.map((d) => (
           <tr key={d.id} id={`med-${d.id}`}>
             <td>
-              <strong>{d.name}</strong>
+              <DrugName id={d.id} />
             </td>
             <td>{d.dose}</td>
             <td>{d.use}</td>
