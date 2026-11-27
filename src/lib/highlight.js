@@ -9,7 +9,7 @@ export function clearHighlight() {
 
 export function highlightIn(element, terms) {
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
-    acceptNode: (n) => (n.parentElement.closest('svg, nav') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    acceptNode: (n) => (n.parentElement.closest('svg, nav, [data-noindex]') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
   })
   const ranges = []
   while (walker.nextNode()) {

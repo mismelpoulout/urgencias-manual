@@ -84,7 +84,11 @@ export default function SearchBox({ ref, placeholder, shortPlaceholder, onSelect
           placeholder={roomy ? placeholder : shortPlaceholder}
           autoComplete="off"
           aria-label="Buscar en el manual"
-          aria-controls={listId}
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={active}
+          aria-controls={active ? listId : undefined}
+          aria-activedescendant={active && results[selected] ? `${listId}-${selected}` : undefined}
           className={`w-full border-[1.5px] border-line text-ink transition-colors outline-none focus:border-red ${
             big
               ? 'h-[54px] rounded-2xl bg-bg pr-11 pl-[50px] text-[17px] shadow-[0_10px_30px_rgba(200,16,46,.10)] sm:h-[58px]'
@@ -110,6 +114,7 @@ export default function SearchBox({ ref, placeholder, shortPlaceholder, onSelect
               {results.map((entry, i) => (
                 <a
                   key={entry.id}
+                  id={`${listId}-${i}`}
                   href={`#${entry.id}`}
                   role="option"
                   aria-selected={i === selected}

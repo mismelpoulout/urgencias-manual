@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Table from '../content/Table.jsx'
-import Calculator, { Field, controlClass, formatNumber } from './Calculator.jsx'
+import Calculator, { Checkbox, Field, InvalidInput, NumberField, controlClass } from './Calculator.jsx'
+import { SODIUM, WEIGHT, formatNumber, parseInRange } from '../../lib/format.js'
+import { correctionLimit, sodiumChange } from '../../lib/sodium.js'
 
 const f = (x, decimals = 1) => formatNumber(x, decimals)
 
@@ -20,10 +22,10 @@ const SOLUTIONS = [
 ]
 const COLUMNS = ['Solución', 'Na⁺ mEq/L', 'Cambio por 1 L']
 
-function Results({ weight, sodium, factor }) {
+function Results({ weight, sodium, factor, highRisk }) {
   const tbw = weight * factor // agua corporal total
-  const change = (concentration) => (concentration - sodium) / (tbw + 1) // Adrogué-Madias
-  const limit = sodium <= 120 ? 8 : 10
+  const change = (concentration) => sodiumChange(concentration, sodium, tbw)
+  const limit = correctionLimit(sodium, highRisk)
 
   return (
     <>
@@ -72,21 +74,24 @@ export default function SodiumCalculator() {
   const [weight, setWeight] = useState('70')
   const [sodium, setSodium] = useState('118')
   const [group, setGroup] = useState(0)
-  const w = parseFloat(weight) || 0
-  const na = parseFloat(sodium) || 0
+  const [highRisk, setHighRisk] = useState(false)
+  const w = parseInRange(weight, WEIGHT)
+  const na = parseInRange(sodium, SODIUM)
+  const valid = w !== null && na !== null
 
   return (
     <Calculator
       title="Calculadora de sodio"
+      summary={
+        valid
+          ? `Peso: ${formatNumber(w, 2)} kg · Na⁺ actual: ${formatNumber(na, 2)} mEq/L · ${GROUPS[group].label} · Alto riesgo de desmielinización: ${highRisk ? 'sí' : 'no marcado'}`
+          : 'Sin cálculo: datos no válidos.'
+      }
       note="Estimaciones teóricas: la respuesta real varía con la diuresis y las pérdidas. Medir el Na cada 2-4 h."
       fields={
         <>
-          <Field label="Peso (kg)">
-            <input className={controlClass} type="number" inputMode="decimal" min="20" max="250" value={weight} onChange={(e) => setWeight(e.target.value)} />
-          </Field>
-          <Field label="Na⁺ actual (mEq/L)">
-            <input className={controlClass} type="number" inputMode="decimal" min="90" max="190" value={sodium} onChange={(e) => setSodium(e.target.value)} />
-          </Field>
+          <NumberField label="Peso (kg)" range={WEIGHT} value={weight} onChange={setWeight} />
+          <NumberField label="Na⁺ actual (mEq/L)" range={SODIUM} value={sodium} onChange={setSodium} />
           <Field label="Grupo">
             <select className={`${controlClass} xs:!w-[190px]`} value={group} onChange={(e) => setGroup(Number(e.target.value))}>
               {GROUPS.map((g, i) => (
@@ -94,10 +99,21 @@ export default function SodiumCalculator() {
               ))}
             </select>
           </Field>
+          <Checkbox
+            label="Alto riesgo de desmielinización: alcoholismo, desnutrición, hipokalemia, cirrosis o trasplante hepático"
+            checked={highRisk}
+            onChange={setHighRisk}
+          />
         </>
       }
     >
-      {w && na ? <Results weight={w} sodium={na} factor={GROUPS[group].factor} /> : null}
+      {valid ? (
+        <Results weight={w} sodium={na} factor={GROUPS[group].factor} highRisk={highRisk} />
+      ) : (
+        <InvalidInput>
+          Ingrese un peso entre {WEIGHT.min} y {WEIGHT.max} kg y un Na⁺ entre {SODIUM.min} y {SODIUM.max} mEq/L.
+        </InvalidInput>
+      )}
     </Calculator>
   )
 }

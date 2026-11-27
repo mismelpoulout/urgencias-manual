@@ -10,7 +10,7 @@ import Toast from './components/layout/Toast.jsx'
 import Toc from './components/layout/Toc.jsx'
 import { clearHighlight, highlightIn } from './lib/highlight.js'
 import { prefersReducedMotion } from './lib/motion.js'
-import { toTerms } from './lib/text.js'
+import { anchorId, toTerms } from './lib/text.js'
 
 const PRINT_HELP = 'Si no se abrió el diálogo de impresión, usa Ctrl+P (⌘P en Mac). El manual se imprime en A4 con un capítulo por página.'
 
@@ -26,7 +26,7 @@ export default function App() {
 
   // El contenido se pinta después de cargar la página: hay que ir al ancla de la URL.
   useEffect(() => {
-    const id = decodeURIComponent(window.location.hash.slice(1))
+    const id = anchorId(window.location.hash)
     if (id) document.getElementById(id)?.scrollIntoView()
   }, [])
 
@@ -52,14 +52,16 @@ export default function App() {
   const goTo = useCallback((entry, query) => {
     const element = document.getElementById(entry.id)
     const ranges = highlightIn(element, toTerms(query))
-    const first = ranges[0]?.startContainer.parentElement
+    // En pantallas angostas los encabezados de tabla están ocultos y no se puede desplazar hasta ellos.
+    const visible = ranges.map((r) => r.startContainer.parentElement).filter((el) => el.getClientRects().length)
+    const first = visible[0]
     const toStart = !first || first.closest('h1, h2')
     window.history.replaceState(null, '', `#${entry.id}`)
     ;(toStart ? element : first).scrollIntoView({
       behavior: prefersReducedMotion() ? 'auto' : 'smooth',
       block: toStart ? 'start' : 'center',
     })
-    const n = ranges.length
+    const n = visible.length
     setPill(n ? `${n} coincidencia${n > 1 ? 's' : ''} de «${query.trim()}»` : '')
     setTocOpen(false)
   }, [])
