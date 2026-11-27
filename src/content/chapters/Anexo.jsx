@@ -1,12 +1,13 @@
 import Callout from '../../components/content/Callout.jsx'
 import Section from '../../components/content/Section.jsx'
+import ScoreCalculator from '../../components/scores/ScoreCalculator.jsx'
 
 // Anexo · Scores clínicos más utilizados en urgencias
 export default function Anexo() {
   return (
     <>
       <Callout type="nota">
-        <p>Documento de referencia rápida por especialidad. Cada score incluye <strong>Detalle</strong> (qué mide/cómo se calcula), <strong>Clínica</strong> (interpretación/estratificación de riesgo) y <strong>Conducta</strong> (manejo sugerido según puntaje).</p>
+        <p>Documento de referencia rápida por especialidad. Cada score incluye <strong>Detalle</strong> (qué mide/cómo se calcula), <strong>Clínica</strong> (interpretación/estratificación de riesgo) y <strong>Conducta</strong> (manejo sugerido según puntaje). Con el botón <strong>Calcular</strong> se ingresan los datos y se obtiene el puntaje, la gravedad, la conducta y accesos a los capítulos y fármacos relacionados.</p>
       </Callout>
       <Section id="ca-s1" title="Cirugía (10 scores)">
         <h3>1. Score de Alvarado (Apendicitis Aguda)</h3>
@@ -21,6 +22,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≤4 → alta con control o reevaluar; 5-6 → ecografía/TAC y observación seriada; ≥7 → interconsulta a cirugía, considerar apendicectomía.</p>
           </li>
         </ul>
+        <ScoreCalculator id="alvarado" />
         <h3>2. RIPASA Score (Apendicitis Aguda)</h3>
         <ul>
           <li>
@@ -33,6 +35,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥7.5 → cirugía; intermedio → imagen (TAC/eco) antes de decidir.</p>
           </li>
         </ul>
+        <ScoreCalculator id="ripasa" />
         <h3>3. Score de Ranson (Pancreatitis Aguda)</h3>
         <ul>
           <li>
@@ -45,6 +48,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥3 → UCI/UTI, monitorización estrecha, considerar TAC contrastado a las 72h.</p>
           </li>
         </ul>
+        <ScoreCalculator id="ranson" />
         <h3>4. BISAP Score (Pancreatitis Aguda)</h3>
         <ul>
           <li>
@@ -57,6 +61,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥3 → hospitalización con monitorización intensiva, hidratación agresiva guiada.</p>
           </li>
         </ul>
+        <ScoreCalculator id="bisap" />
         <h3>5. APACHE II</h3>
         <ul>
           <li>
@@ -69,6 +74,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Guía ingreso a UCI y pronóstico; no cambia manejo puntual pero orienta intensidad de cuidados.</p>
           </li>
         </ul>
+        <ScoreCalculator id="apache2" />
         <h3>6. Índice de Peritonitis de Mannheim (MPI)</h3>
         <ul>
           <li>
@@ -81,6 +87,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Puntajes altos → cirugía urgente + manejo en UCI postoperatorio.</p>
           </li>
         </ul>
+        <ScoreCalculator id="mannheim" />
         <h3>7. Boey Score (Úlcera Péptica Perforada)</h3>
         <ul>
           <li>
@@ -93,6 +100,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Puntaje alto → cirugía de urgencia + reanimación agresiva prequirúrgica.</p>
           </li>
         </ul>
+        <ScoreCalculator id="boey" />
         <h3>8. Clasificación ASA (Riesgo Anestésico)</h3>
         <ul>
           <li>
@@ -105,6 +113,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ASA III-IV → evaluación preanestésica exhaustiva, considerar UCI postoperatoria.</p>
           </li>
         </ul>
+        <ScoreCalculator id="asa" />
         <h3>9. Índice de Comorbilidad de Charlson</h3>
         <ul>
           <li>
@@ -117,6 +126,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Puntajes altos → discutir objetivos terapéuticos y riesgo quirúrgico con paciente/familia.</p>
           </li>
         </ul>
+        <ScoreCalculator id="charlson" />
         <h3>10. Glasgow-Blatchford Score (Hemorragia Digestiva Alta)</h3>
         <ul>
           <li>
@@ -129,6 +139,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Score 0 → alta con endoscopía ambulatoria; ≥6 → alto riesgo de necesitar transfusión/endoscopía urgente.</p>
           </li>
         </ul>
+        <ScoreCalculator id="blatchford" />
       </Section>
       <Section id="ca-s2" title="Psiquiatría (7 scores)">
         <h3>1. Columbia Suicide Severity Rating Scale (C-SSRS)</h3>
@@ -143,6 +154,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Riesgo alto → hospitalización psiquiátrica involuntaria si es necesario, retirar medios letales, acompañamiento continuo.</p>
           </li>
         </ul>
+        <ScoreCalculator id="cssrs" />
         <h3>2. SAD PERSONS Scale</h3>
         <ul>
           <li>
@@ -155,6 +167,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥7 → hospitalización; 5-6 → evaluación psiquiátrica urgente y considerar internación.</p>
           </li>
         </ul>
+        <ScoreCalculator id="sadpersons" />
         <h3>3. CIWA-Ar (Abstinencia Alcohólica)</h3>
         <ul>
           <li>
@@ -167,6 +180,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> &gt;18 → benzodiacepinas escalonadas (protocolo sintomático), vigilancia estrecha, considerar UCI.</p>
           </li>
         </ul>
+        <ScoreCalculator id="ciwa" />
         <h3>4. COWS (Clinical Opiate Withdrawal Scale)</h3>
         <ul>
           <li>
@@ -179,6 +193,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Moderada-severa → iniciar manejo con agonistas opioides (metadona/buprenorfina) según protocolo local.</p>
           </li>
         </ul>
+        <ScoreCalculator id="cows" />
         <h3>5. Escala de Agitación-Sedación de Richmond (RASS)</h3>
         <ul>
           <li>
@@ -191,6 +206,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> RASS alto → contención verbal/farmacológica (antipsicóticos/benzodiacepinas), evaluar causa orgánica.</p>
           </li>
         </ul>
+        <ScoreCalculator id="rass" />
         <h3>6. CAM (Confusion Assessment Method - Delirium)</h3>
         <ul>
           <li>
@@ -203,6 +219,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Positivo → buscar causa orgánica (infección, metabólica, fármacos) antes de atribuir a cuadro psiquiátrico.</p>
           </li>
         </ul>
+        <ScoreCalculator id="cam" />
         <h3>7. CAGE (Tamizaje de Consumo de Alcohol)</h3>
         <ul>
           <li>
@@ -215,6 +232,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Positivo → derivación a evaluación por adicciones, screening de comorbilidad psiquiátrica.</p>
           </li>
         </ul>
+        <ScoreCalculator id="cage" />
       </Section>
       <Section id="ca-s3" title="Medicina interna (5 scores)">
         <h3>1. CHA2DS2-VASc (Riesgo Embólico en FA)</h3>
@@ -229,6 +247,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Score alto → indicar anticoagulación oral (salvo contraindicación).</p>
           </li>
         </ul>
+        <ScoreCalculator id="cha2ds2vasc" />
         <h3>2. HAS-BLED (Riesgo de Sangrado con Anticoagulación)</h3>
         <ul>
           <li>
@@ -241,6 +260,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> No contraindica anticoagulación per se, pero obliga a corregir factores modificables y vigilancia estrecha.</p>
           </li>
         </ul>
+        <ScoreCalculator id="hasbled" />
         <h3>3. Child-Pugh (Severidad de Hepatopatía)</h3>
         <ul>
           <li>
@@ -253,6 +273,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Clase C → evaluación para trasplante hepático, manejo estricto de complicaciones (ascitis, encefalopatía, HDA variceal).</p>
           </li>
         </ul>
+        <ScoreCalculator id="childpugh" />
         <h3>4. MELD Score (Model for End-Stage Liver Disease)</h3>
         <ul>
           <li>
@@ -265,18 +286,20 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> MELD alto → priorizar evaluación para trasplante y manejo intensivo de complicaciones.</p>
           </li>
         </ul>
+        <ScoreCalculator id="meld" />
         <h3>5. Wells Score (Trombosis Venosa Profunda)</h3>
         <ul>
           <li>
-            <p><strong>Detalle:</strong> Cáncer activo, parálisis/inmovilización, encamamiento &gt;3 días, dolor localizado, edema de toda la pierna, asimetría de pantorrilla &gt;3cm, edema con fóvea, venas colaterales, diagnóstico alternativo (-2).</p>
+            <p><strong>Detalle:</strong> Cáncer activo, parálisis/inmovilización, encamamiento &gt;3 días, dolor localizado, edema de toda la pierna, asimetría de pantorrilla &gt;3cm, edema con fóvea, venas colaterales, TVP previa, diagnóstico alternativo (-2).</p>
           </li>
           <li>
-            <p><strong>Clínica:</strong> &lt;1 baja probabilidad; 1-2 moderada; ≥2 alta probabilidad de TVP.</p>
+            <p><strong>Clínica:</strong> ≤0 baja probabilidad; 1-2 moderada; ≥3 alta probabilidad de TVP.</p>
           </li>
           <li>
             <p><strong>Conducta:</strong> Baja probabilidad + Dímero D negativo → descarta TVP; alta probabilidad → ecografía doppler urgente.</p>
           </li>
         </ul>
+        <ScoreCalculator id="wells-tvp" />
       </Section>
       <Section id="ca-s4" title="Neurología (7 scores)">
         <h3>1. Escala de Coma de Glasgow (GCS)</h3>
@@ -291,6 +314,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≤8 → considerar intubación orotraqueal para protección de vía aérea, TAC de cerebro urgente.</p>
           </li>
         </ul>
+        <ScoreCalculator id="glasgow" />
         <h3>2. NIHSS (National Institutes of Health Stroke Scale)</h3>
         <ul>
           <li>
@@ -303,6 +327,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Guía elección de trombolisis/trombectomía y pronóstico; reevaluación seriada post-tratamiento.</p>
           </li>
         </ul>
+        <ScoreCalculator id="nihss" />
         <h3>3. ABCD2 Score (Riesgo de ACV tras AIT)</h3>
         <ul>
           <li>
@@ -315,6 +340,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥4 → hospitalización y estudio urgente (imagen vascular, ecocardiograma).</p>
           </li>
         </ul>
+        <ScoreCalculator id="abcd2" />
         <h3>4. Escala de Hunt y Hess (Hemorragia Subaracnoidea)</h3>
         <ul>
           <li>
@@ -327,6 +353,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Grados altos → manejo en UCI neurológica, evaluación neuroquirúrgica urgente (clipaje/coiling).</p>
           </li>
         </ul>
+        <ScoreCalculator id="hunthess" />
         <h3>5. Escala de Fisher (Hemorragia Subaracnoidea - Vasoespasmo)</h3>
         <ul>
           <li>
@@ -339,6 +366,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Grados altos → profilaxis con nimodipino, monitorización de vasoespasmo (doppler transcraneal).</p>
           </li>
         </ul>
+        <ScoreCalculator id="fisher" />
         <h3>6. ICH Score (Hemorragia Intracerebral)</h3>
         <ul>
           <li>
@@ -351,6 +379,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Guía discusión pronóstica con familia y decisión de manejo activo vs.&nbsp;paliativo/neuroquirúrgico.</p>
           </li>
         </ul>
+        <ScoreCalculator id="ich" />
         <h3>7. Escala de Rankin Modificada (mRS)</h3>
         <ul>
           <li>
@@ -363,6 +392,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Orienta plan de rehabilitación y expectativas al alta.</p>
           </li>
         </ul>
+        <ScoreCalculator id="rankin" />
       </Section>
       <Section id="ca-s5" title="Trauma (5 scores)">
         <h3>1. Revised Trauma Score (RTS)</h3>
@@ -377,6 +407,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Usado en triage prehospitalario para priorizar traslado a centro de trauma.</p>
           </li>
         </ul>
+        <ScoreCalculator id="rts" />
         <h3>2. Injury Severity Score (ISS)</h3>
         <ul>
           <li>
@@ -389,6 +420,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ISS alto → activación de equipo de trauma completo, traslado a centro de trauma nivel I.</p>
           </li>
         </ul>
+        <ScoreCalculator id="iss" />
         <h3>3. AAST Organ Injury Scale</h3>
         <ul>
           <li>
@@ -401,6 +433,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Grados altos + inestabilidad hemodinámica → laparotomía de urgencia; estable → manejo no operatorio con observación.</p>
           </li>
         </ul>
+        <ScoreCalculator id="aast" />
         <h3>4. Canadian C-Spine Rule</h3>
         <ul>
           <li>
@@ -413,6 +446,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Cumple criterios de bajo riesgo y rotación completa → no requiere imagen; caso contrario → TAC de columna cervical.</p>
           </li>
         </ul>
+        <ScoreCalculator id="cspine" />
         <h3>5. Criterios NEXUS (Columna Cervical)</h3>
         <ul>
           <li>
@@ -425,6 +459,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Cumple todos los criterios → se puede omitir imagen; si falla alguno → estudio de imagen cervical.</p>
           </li>
         </ul>
+        <ScoreCalculator id="nexus" />
       </Section>
       <Section id="ca-s6" title="Respiratorio (5 scores)">
         <h3>1. CURB-65 (Neumonía Adquirida en la Comunidad)</h3>
@@ -439,6 +474,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> 0-1 → manejo ambulatorio; 2 → considerar hospitalización; ≥3 → hospitalización, considerar UCI.</p>
           </li>
         </ul>
+        <ScoreCalculator id="curb65" />
         <h3>2. Pneumonia Severity Index (PSI/PORT Score)</h3>
         <ul>
           <li>
@@ -454,6 +490,7 @@ export default function Anexo() {
             </ol>
           </li>
         </ul>
+        <ScoreCalculator id="psi" />
         <h3>3. Wells Score (Tromboembolismo Pulmonar)</h3>
         <ul>
           <li>
@@ -466,6 +503,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Baja probabilidad + Dímero D negativo → descarta TEP; alta probabilidad → AngioTAC de tórax urgente.</p>
           </li>
         </ul>
+        <ScoreCalculator id="wells-tep" />
         <h3>4. Score de Ginebra Revisado (TEP)</h3>
         <ul>
           <li>
@@ -478,6 +516,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Igual que Wells: guía necesidad de Dímero D vs.&nbsp;imagen directa (angioTAC).</p>
           </li>
         </ul>
+        <ScoreCalculator id="ginebra" />
         <h3>5. BODE Index (EPOC)</h3>
         <ul>
           <li>
@@ -490,6 +529,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Puntajes altos → derivación a rehabilitación pulmonar, evaluación de oxigenoterapia/trasplante.</p>
           </li>
         </ul>
+        <ScoreCalculator id="bode" />
       </Section>
       <Section id="ca-s7" title="Generales y transversales (5 scores)">
         <h3>1. qSOFA (Quick SOFA - Sepsis)</h3>
@@ -504,6 +544,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥2 → iniciar bundle de sepsis (cultivos, lactato, antibióticos precoces, fluidos), considerar UCI.</p>
           </li>
         </ul>
+        <ScoreCalculator id="qsofa" />
         <h3>2. SOFA (Sequential Organ Failure Assessment)</h3>
         <ul>
           <li>
@@ -516,6 +557,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Guía manejo en UCI y seguimiento evolutivo de falla orgánica.</p>
           </li>
         </ul>
+        <ScoreCalculator id="sofa" />
         <h3>3. NEWS2 (National Early Warning Score)</h3>
         <ul>
           <li>
@@ -528,6 +570,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> ≥7 → evaluación médica urgente, considerar traslado a UCI/monitorización continua.</p>
           </li>
         </ul>
+        <ScoreCalculator id="news2" />
         <h3>4. MEWS (Modified Early Warning Score)</h3>
         <ul>
           <li>
@@ -540,6 +583,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Score elevado → aumentar frecuencia de monitorización y activar equipo de respuesta rápida.</p>
           </li>
         </ul>
+        <ScoreCalculator id="mews" />
         <h3>5. Sistema de Triage de Manchester (MTS)</h3>
         <ul>
           <li>
@@ -552,6 +596,7 @@ export default function Anexo() {
             <p><strong>Conducta:</strong> Determina orden de atención y tiempo máximo de espera según nivel de urgencia asignado.</p>
           </li>
         </ul>
+        <ScoreCalculator id="manchester" />
         <p><em>Documento de referencia clínica rápida — no reemplaza el juicio clínico ni protocolos institucionales vigentes.</em></p>
       </Section>
     </>

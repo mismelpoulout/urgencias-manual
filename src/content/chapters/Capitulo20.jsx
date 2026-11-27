@@ -1,3 +1,4 @@
+import EcgQuiz from '../../components/content/EcgQuiz.jsx'
 import EcgTrace from '../../components/content/EcgTrace.jsx'
 import { EcgGrid, ImageGrid } from '../../components/content/Grids.jsx'
 import Section from '../../components/content/Section.jsx'
@@ -358,6 +359,10 @@ export default function Capitulo20() {
             </tr>
           </tbody>
         </Table>
+      </Section>
+      <Section id="c20-s6" title="6. Autoevaluación: identificar ritmos">
+        <p>Reproduzca el trazado, mire y escuche, y elija el ritmo o patrón. Al responder verá la clínica asociada.</p>
+        <EcgQuiz />
       </Section>
     </>
   )

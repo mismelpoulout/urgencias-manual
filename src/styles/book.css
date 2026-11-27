@@ -59,6 +59,11 @@
     @apply pt-2.5;
   }
 
+  /* Ficha a la que se llegó desde un score o una combinación */
+  .tw table tr:target td {
+    @apply bg-ambert;
+  }
+
   /* Tablas */
   .tw {
     container-type: inline-size;

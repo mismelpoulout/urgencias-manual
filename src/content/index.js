@@ -20,7 +20,9 @@ import Capitulo18 from './chapters/Capitulo18.jsx'
 import Capitulo19 from './chapters/Capitulo19.jsx'
 import Capitulo20 from './chapters/Capitulo20.jsx'
 import Capitulo21 from './chapters/Capitulo21.jsx'
+import Capitulo22 from './chapters/Capitulo22.jsx'
 import Anexo from './chapters/Anexo.jsx'
+import { DRUG_GROUPS } from './drugs.js'
 
 export const chapters = [
   {
@@ -388,6 +390,7 @@ export const chapters = [
       { id: "c20-s3", title: "3. Radiografía de tórax" },
       { id: "c20-s4", title: "4. Tomografía computada" },
       { id: "c20-s5", title: "5. Laboratorio: casos ilustrativos para interpretar" },
+      { id: "c20-s6", title: "6. Autoevaluación: identificar ritmos" },
     ],
   },
   {
@@ -401,6 +404,18 @@ export const chapters = [
       { id: "c21-s2", title: "FASE 2 — Diagnóstico dirigido (aclarar la causa)" },
       { id: "c21-s3", title: "FASE 3 — Tratamiento definitivo, conducta y disposición" },
       { id: "c21-s4", title: "Cuadro-resumen de las tres fases" },
+    ],
+  },
+  {
+    id: "cap-22",
+    n: "22",
+    title: "Vademécum: fármacos, combinaciones y mezclas",
+    isNew: true,
+    Content: Capitulo22,
+    sections: [
+      ...DRUG_GROUPS.map((g) => ({ id: `c22-${g.id}`, title: g.name })),
+      { id: "c22-combos", title: "Combinaciones de tratamiento por cuadro" },
+      { id: "c22-mezclas", title: "Comprobador: ¿se pueden mezclar?" },
     ],
   },
   {
@@ -421,4 +436,13 @@ export const chapters = [
   },
 ]
 
-export const bookStats = { tables: 39, media: 46 }
+// 39 tablas en los capítulos más una por grupo del vademécum
+export const bookStats = { tables: 39 + DRUG_GROUPS.length, media: 46 }
+
+export function sectionLabel(id) {
+  for (const c of chapters) {
+    const section = c.sections.find((s) => s.id === id)
+    if (section) return `${c.n === 'A' ? 'Anexo' : `Cap. ${c.n}`} · ${section.title}`
+  }
+  return id
+}

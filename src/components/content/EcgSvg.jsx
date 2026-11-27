@@ -1,22 +1,21 @@
 import { memo } from 'react'
-import { toPath, wave } from '../../lib/ecg.js'
+import { ECG_GUIDE } from '../../content/ecgGuide.js'
+import { MM, PAPER_HEIGHT, mapX, mapY, toPath, wave } from '../../lib/ecg.js'
 
 const W = 600
-const H = 130
-const MM = 4
-const BASELINE = H * 0.6
+const H = PAPER_HEIGHT
 
 const steps = (max) => Array.from({ length: Math.floor(max / MM) + 1 }, (_, i) => i * MM)
 const gridClass = (v) => (v % (5 * MM) ? 'stroke-grid2 [stroke-width:.5]' : 'stroke-grid [stroke-width:1]')
+const traceClass = 'fill-none stroke-trace [stroke-linejoin:round] [stroke-width:1.6] [vector-effect:non-scaling-stroke]'
 
-// Papel milimetrado: 25 mm/s y 10 mm/mV
-function EcgSvg({ type, lead = 'DII' }) {
-  const d = toPath(wave(type), (x) => x * 25 * MM, (v) => BASELINE - v * 10 * MM)
+// live: en pantalla se muestra el trazado animado (liveRef); al imprimir, siempre el estático.
+function EcgSvg({ type, lead = 'DII', live = false, liveRef, dotRef, compare = false, mystery = false }) {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
       role="img"
-      aria-label={`Trazado ECG ${type}`}
+      aria-label={mystery ? 'Trazado ECG por identificar' : `Trazado ECG: ${ECG_GUIDE[type].name}`}
       className="block h-auto w-full rounded-[10px] border border-grid bg-paper"
     >
       {steps(W).map((x) => (
@@ -28,7 +27,16 @@ function EcgSvg({ type, lead = 'DII' }) {
       <text className="fill-red font-sans text-[11px] font-semibold max-xs:text-[18px]" x={8} y={15}>
         {lead}
       </text>
-      <path className="fill-none stroke-trace [stroke-linejoin:round] [stroke-width:1.6] [vector-effect:non-scaling-stroke]" d={d} />
+      {compare && (
+        <path
+          className="fill-none stroke-blue opacity-70 [stroke-dasharray:4_3] [stroke-width:1.3] [vector-effect:non-scaling-stroke] print:hidden"
+          d={toPath(wave('sinus'), mapX, mapY)}
+        />
+      )}
+      <path className={`${traceClass} ${live ? 'hidden print:inline' : ''}`} d={toPath(wave(type), mapX, mapY)} />
+      {liveRef && <path ref={liveRef} className={`${traceClass} ${live ? 'print:hidden' : 'hidden'}`} />}
+      {/* Se enciende con cada QRS */}
+      {dotRef && <circle ref={dotRef} className="fill-red opacity-0 print:hidden" cx={W - 12} cy={12} r={5} />}
     </svg>
   )
 }

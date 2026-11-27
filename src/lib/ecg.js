@@ -28,99 +28,148 @@ function beat(t, o) {
   return v
 }
 
-function times(rr, start) {
+// Generadores de latidos: devuelven los que caen en [from, to). Así el ritmo continúa
+// indefinidamente en el trazado animado, sin saltos cada 6 segundos.
+const every = (start, period) => (from, to) => {
   const beats = []
-  for (let t = start; t < DURATION + rr; t += rr) beats.push(t)
+  for (let n = Math.max(0, Math.ceil((from - start) / period)); start + n * period < to; n++) {
+    beats.push({ t: start + n * period, n })
+  }
   return beats
+}
+
+// R-R al azar (con semilla): se generan a medida que se piden.
+const irregular = (seed) => {
+  const random = rng(seed)
+  const beats = []
+  let next = 0.2
+  return (from, to) => {
+    while (next < to) {
+      beats.push({ t: next })
+      next += 0.42 + random() * 0.55
+    }
+    return beats.filter((b) => b.t >= from && b.t < to)
+  }
+}
+
+// Bloqueo AV de 2.º grado: de cada ciclo de ondas P conducen las que tienen PR definido.
+const secondDegree = (start, period, cycle, prs) => {
+  const p = every(start, period)
+  const longest = Math.max(...prs)
+  const qrs = (from, to) =>
+    p(from - longest, to)
+      .filter(({ n }) => n % cycle < prs.length)
+      .map(({ t, n }) => ({ t: t + prs[n % cycle] }))
+      .filter((b) => b.t >= from && b.t < to)
+  return { p, qrs, o: { p: false } }
 }
 
 const sin = (f, x, phase = 0) => Math.sin(2 * Math.PI * f * x + phase)
 
+// qrs: complejos QRS · p: ondas P independientes del QRS · base: actividad de fondo
 export const RHYTHMS = {
-  sinus: () => ({ beats: times(0.8, 0.25), o: {} }),
-  stemi: () => ({ beats: times(0.75, 0.25), o: { st: 0.32, ta: 0.42, tc: 0.27, sa: -0.05 } }),
-  fa: () => {
-    const random = rng(7)
-    const beats = []
-    for (let t = 0.2; t < DURATION; t += 0.42 + random() * 0.55) beats.push(t)
-    return {
-      beats,
-      o: { p: false },
-      base: (x) => 0.035 * sin(6.3, x) + 0.025 * sin(8.7, x, 1) + 0.015 * sin(11.1, x, 2),
-    }
-  },
+  sinus: () => ({ qrs: every(0.25, 0.8), o: {} }),
+  stemi: () => ({ qrs: every(0.25, 0.75), o: { st: 0.32, ta: 0.42, tc: 0.27, sa: -0.05 } }),
+  fa: () => ({
+    qrs: irregular(7),
+    o: { p: false },
+    base: (x) => 0.035 * sin(6.3, x) + 0.025 * sin(8.7, x, 1) + 0.015 * sin(11.1, x, 2),
+  }),
   flutter: () => ({
-    beats: times(0.4, 0.18),
+    qrs: every(0.18, 0.4),
     o: { p: false, ta: 0.12 },
     base: (x) => {
       const f = (x * 5) % 1
       return 0.16 * (f < 0.8 ? -f / 0.8 + 0.5 : (f - 0.8) / 0.2 - 0.5)
     },
   }),
-  tsv: () => ({ beats: times(0.333, 0.15), o: { p: false, ta: 0.22, tc: 0.2, tw: 0.04 } }),
+  tsv: () => ({ qrs: every(0.15, 0.333), o: { p: false, ta: 0.22, tc: 0.2, tw: 0.04 } }),
   tv: () => ({
-    beats: times(0.333, 0.12),
+    qrs: every(0.12, 0.333),
     o: { p: false, qw: 3.4, ra: 1.25, qa: -0.05, sa: -0.35, ta: -0.45, tc: 0.17, tw: 0.05 },
   }),
   fv: () => ({
-    beats: [],
+    qrs: () => [],
     o: {},
     base: (x) => (0.25 + 0.18 * sin(0.35, x)) * (sin(4.6, x) + 0.6 * sin(6.1, x, 1.3) + 0.35 * sin(3.1, x, 0.4)),
   }),
-  bav1: () => ({ beats: times(0.9, 0.4), o: { pr: 0.32 } }),
-  mobitz1: () => {
-    const pWaves = []
-    const conducted = []
-    const prs = [0.16, 0.25, 0.32]
-    for (let t = 0.15, i = 0; t < DURATION + 0.5; t += 0.78, i++) {
-      pWaves.push(t)
-      const k = i % 4
-      if (k < 3) conducted.push({ t: t + prs[k], pr: prs[k] })
-    }
-    return { pWaves, conducted, o: { p: false } }
-  },
-  mobitz2: () => {
-    const pWaves = []
-    const conducted = []
-    for (let t = 0.15, i = 0; t < DURATION + 0.5; t += 0.72, i++) {
-      pWaves.push(t)
-      if (i % 3 !== 2) conducted.push({ t: t + 0.18, pr: 0.18 })
-    }
-    return { pWaves, conducted, o: { p: false } }
-  },
-  bav3: () => {
-    const pWaves = []
-    for (let t = 0.1; t < DURATION + 0.5; t += 0.68) pWaves.push(t)
-    return {
-      pWaves,
-      beats: times(1.5, 0.55),
-      o: { p: false, qw: 2.4, ra: 1.1, sa: -0.3, ta: -0.3, tc: 0.3, tw: 0.07 },
-    }
-  },
-  pericard: () => ({ beats: times(0.78, 0.25), o: { st: 0.14, prdep: 0.06, ta: 0.34 } }),
-  hiperk: () => ({ beats: times(0.8, 0.25), o: { pa: 0.05, pw: 0.035, qw: 1.6, sa: -0.32, ta: 0.82, tw: 0.034, tc: 0.27 } }),
-  hipok: () => ({ beats: times(0.85, 0.25), o: { st: -0.07, ta: 0.07, tc: 0.3, ua: 0.17, uoff: 0.17 } }),
-  hipoca: () => ({ beats: times(1, 0.25), o: { tc: 0.43, ta: 0.28 } }),
-  hiperca: () => ({ beats: times(0.8, 0.25), o: { tc: 0.17, ta: 0.3, tw: 0.04 } }),
+  bav1: () => ({ qrs: every(0.4, 0.9), o: { pr: 0.32 } }),
+  mobitz1: () => secondDegree(0.15, 0.78, 4, [0.16, 0.25, 0.32]),
+  mobitz2: () => secondDegree(0.15, 0.72, 3, [0.18, 0.18]),
+  bav3: () => ({
+    p: every(0.1, 0.68),
+    qrs: every(0.55, 1.5),
+    o: { p: false, qw: 2.4, ra: 1.1, sa: -0.3, ta: -0.3, tc: 0.3, tw: 0.07 },
+  }),
+  pericard: () => ({ qrs: every(0.25, 0.78), o: { st: 0.14, prdep: 0.06, ta: 0.34 } }),
+  hiperk: () => ({ qrs: every(0.25, 0.8), o: { pa: 0.05, pw: 0.035, qw: 1.6, sa: -0.32, ta: 0.82, tw: 0.034, tc: 0.27 } }),
+  hipok: () => ({ qrs: every(0.25, 0.85), o: { st: -0.07, ta: 0.07, tc: 0.3, ua: 0.17, uoff: 0.17 } }),
+  hipoca: () => ({ qrs: every(0.25, 1), o: { tc: 0.43, ta: 0.28 } }),
+  hiperca: () => ({ qrs: every(0.25, 0.8), o: { tc: 0.17, ta: 0.3, tw: 0.04 } }),
+}
+
+const instances = new Map()
+
+function rhythm(type) {
+  if (!instances.has(type)) instances.set(type, RHYTHMS[type]())
+  return instances.get(type)
+}
+
+export const STEP = 0.004
+
+// Puntos [segundos desde `from`, mV] de la ventana de DURATION segundos que empieza en `from`.
+export function segment(type, from) {
+  const d = rhythm(type)
+  const to = from + DURATION
+  // Un latido influye desde 0,45 s antes hasta 0,7 s después de su onda R.
+  const beats = d.qrs(from - 0.7, to + 0.45)
+  const pWaves = d.p ? d.p(from - 0.7, to + 0.45) : []
+  const points = []
+  for (let x = from; x <= to; x += STEP) {
+    let v = d.base ? d.base(x) : 0
+    for (const { t } of beats) if (x - t > -0.45 && x - t < 0.7) v += beat(x - t, d.o)
+    for (const { t } of pWaves) v += gauss(x, t + 0.02, 0.022, 0.14)
+    points.push([x - from, v])
+  }
+  return points
 }
 
 const cache = new Map()
 
+// Trazado estático: los primeros DURATION segundos.
 export function wave(type) {
-  if (cache.has(type)) return cache.get(type)
-  const d = RHYTHMS[type]()
-  const points = []
-  const inWindow = (dt) => dt > -0.45 && dt < 0.7
-  for (let x = 0; x <= DURATION; x += 0.004) {
-    let v = d.base ? d.base(x) : 0
-    for (const b of d.beats ?? []) if (inWindow(x - b)) v += beat(x - b, d.o)
-    for (const b of d.conducted ?? []) if (inWindow(x - b.t)) v += beat(x - b.t, { ...d.o, p: false })
-    for (const p of d.pWaves ?? []) v += gauss(x, p + 0.02, 0.022, 0.14)
-    points.push([x, v])
-  }
-  cache.set(type, points)
-  return points
+  if (!cache.has(type)) cache.set(type, segment(type, 0))
+  return cache.get(type)
 }
+
+// Sonidos que corresponden al intervalo [from, to): QRS, ondas P y alarma si no hay QRS.
+export function events(type, from, to) {
+  const within = (e) => e.t >= from && e.t < to
+  if (type === 'fv') return every(0.2, 1.2)(from, to).map(({ t }) => ({ t, kind: 'alarm' }))
+  const d = rhythm(type)
+  const qrs = d.qrs(from, to).map(({ t }) => ({ t, kind: 'qrs' }))
+  let p = []
+  if (d.p) p = d.p(from, to)
+  else if (d.o.p !== false) {
+    // La P va unida a su QRS: su centro está PR − 20 ms antes de la onda R.
+    const lead = (d.o.pr ?? 0.16) - 0.02
+    p = d.qrs(from + lead, to + lead).map(({ t }) => ({ t: t - lead }))
+  }
+  return [...qrs, ...p.filter(within).map(({ t }) => ({ t, kind: 'p' }))]
+}
+
+// Frecuencias medias (por minuto) medidas sobre 10 minutos; atrial es null si no hay ondas P.
+export function rates(type) {
+  const all = events(type, 10, 610)
+  const perMinute = (kind) => Math.round(all.filter((e) => e.kind === kind).length / 10)
+  return { ventricular: perMinute('qrs'), atrial: perMinute('p') || null }
+}
+
+// Papel milimetrado: 25 mm/s y 10 mm/mV
+export const MM = 4
+export const PAPER_HEIGHT = 130
+export const mapX = (seconds) => seconds * 25 * MM
+export const mapY = (millivolts) => PAPER_HEIGHT * 0.6 - millivolts * 10 * MM
 
 export function toPath(points, mapX, mapY) {
   return points.map(([x, v], i) => `${i ? 'L' : 'M'}${mapX(x).toFixed(1)} ${mapY(v).toFixed(1)}`).join('')
