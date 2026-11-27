@@ -8,6 +8,7 @@ import HighlightPill from './components/layout/HighlightPill.jsx'
 import PrintFront from './components/layout/PrintFront.jsx'
 import Toast from './components/layout/Toast.jsx'
 import Toc from './components/layout/Toc.jsx'
+import RunningTimers from './components/tools/RunningTimers.jsx'
 import { clearHighlight, highlightIn } from './lib/highlight.js'
 import { prefersReducedMotion } from './lib/motion.js'
 import { anchorId, toTerms } from './lib/text.js'
@@ -89,6 +90,7 @@ export default function App() {
           setPill('')
         }}
       />
+      <RunningTimers />
       <Toast message={toast} />
     </>
   )

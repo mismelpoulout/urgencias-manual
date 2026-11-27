@@ -1,5 +1,6 @@
 import Callout from '../../components/content/Callout.jsx'
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 
 // Capítulo 10 · Los síndromes más comunes en el servicio de urgencia
 export default function Capitulo10() {
@@ -64,6 +65,7 @@ export default function Capitulo10() {
         </Callout>
       </Section>
       <Section id="c10-s2" title="2. Código ACV / Síndrome de déficit neurológico agudo">
+        <ToolLink to="c23-s5">Seguir el algoritmo de ACV</ToolLink>
         <p><strong>Identificación:</strong> inicio súbito de déficit neurológico focal; se activa como Código ACV desde el primer contacto (prehospitalario o triage).</p>
         <p><strong>Cuadro clínico:</strong></p>
         <ul>

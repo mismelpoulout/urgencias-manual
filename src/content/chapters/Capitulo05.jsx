@@ -1,10 +1,12 @@
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 
 // Capítulo 5 · Las 10 causas más frecuentes de dolor torácico en el servicio de urgencias
 export default function Capitulo05() {
   return (
     <>
       <Section id="c5-s1" title="1. Síndrome coronario agudo (infarto agudo de miocardio y angina inestable)">
+        <ToolLink to="c23-s4">Seguir el algoritmo de dolor torácico</ToolLink>
         <h3>Identificación</h3>
         <p>Dolor torácico de origen isquémico causado por la obstrucción total o parcial de una arteria coronaria, que reduce el flujo de sangre y oxígeno al músculo del corazón.</p>
         <h3>Cuadro clínico</h3>

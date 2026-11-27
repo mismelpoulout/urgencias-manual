@@ -20,13 +20,13 @@ export default function Hero({ ref, searchRef, onSelect }) {
   return (
     <section ref={ref} id="inicio" className="relative border-b border-line bg-paper print:hidden">
       <div className="absolute inset-0 opacity-90" style={paper} aria-hidden="true" />
-      <div className="relative z-10 mx-auto grid max-w-[1240px] grid-cols-1 items-center gap-[clamp(24px,4vw,64px)] px-[max(5vw,16px)] pt-[clamp(36px,6vw,84px)] md:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="relative z-10 mx-auto grid max-w-[1240px] grid-cols-1 items-center gap-[clamp(24px,4vw,64px)] px-[max(5vw,16px)] pt-[clamp(36px,6vw,84px)] md:grid-cols-[minmax(0,1fr)_420px]">
         <div>
           <h1 className="mb-3.5 max-w-[14ch] font-serif text-[clamp(38px,6.4vw,76px)] leading-[1.02] font-bold tracking-[-0.015em] text-balance">
             Manual de Urgencias
           </h1>
           <p className="mb-[26px] max-w-[58ch] text-[clamp(17px,1.6vw,20px)] text-ink2">
-            Libro de bolsillo para el turno: 22 capítulos con identificación, clínica, diagnóstico y tratamiento con dosis, calculadoras de scores, vademécum con comprobador de mezclas y un atlas interactivo de ECG.
+            Libro de bolsillo para el turno: 23 capítulos con identificación, clínica, diagnóstico y tratamiento con dosis, scores, vademécum, atlas interactivo de ECG, cronómetros y algoritmos.
           </p>
           <SearchBox ref={searchRef} onSelect={onSelect} big placeholder="¿Qué buscas? Ej.: hiperkalemia, rocuronio, Bell, qSOFA" shortPlaceholder="¿Qué buscas?" />
           <div className="mt-4 flex flex-wrap gap-2">

@@ -1,5 +1,6 @@
 import Callout from '../../components/content/Callout.jsx'
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 
 // Capítulo 11 · Los tipos de shock en el servicio de urgencia
 export default function Capitulo11() {
@@ -208,6 +209,7 @@ export default function Capitulo11() {
         </Callout>
       </Section>
       <Section id="c11-s5" title="5. Shock anafiláctico">
+        <ToolLink to="c23-s6">Seguir el algoritmo de anafilaxia</ToolLink>
         <p><strong>Definición:</strong> subtipo de shock distributivo por una reacción de hipersensibilidad sistémica mediada por IgE (o por mecanismos no inmunológicos similares), con vasodilatación masiva y aumento de la permeabilidad capilar.</p>
         <p><strong>Cuadro clínico:</strong></p>
         <ul>

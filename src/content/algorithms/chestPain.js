@@ -1,0 +1,145 @@
+// Dolor torácico en adultos (capítulos 1, 5 y 19).
+export default {
+  id: 'dolor-toracico',
+  start: 'estabilidad',
+  nodes: {
+    estabilidad: {
+      title: '¿El paciente está inestable?',
+      detail: 'Compromiso de vía aérea, SatO₂ <90%, hipotensión o shock, compromiso de conciencia o arritmia mal tolerada.',
+      options: [['Sí, está inestable', 'inestable'], ['No, está estable', 'diseccion']],
+    },
+    inestable: {
+      title: 'Reanimar y buscar causas de riesgo vital',
+      actions: [
+        'ABCDE, monitor, dos vías venosas, ECG de 12 derivaciones y ecografía a la cabecera',
+        'Neumotórax a tensión: descompresión inmediata',
+        'Taponamiento: pericardiocentesis',
+        'TEP con shock: evaluar trombolisis',
+        'Taquiarritmia inestable: cardioversión sincronizada',
+      ],
+      links: ['c1-s9', 'c2-s5', 'c1-s7'],
+      options: [['Continuar la evaluación', 'diseccion']],
+    },
+    diseccion: {
+      title: '¿Hay rasgos de disección aórtica?',
+      detail: 'Preguntar mientras se obtiene el ECG (en los primeros 10 minutos) y antes de dar antitrombóticos: dolor súbito y desgarrante, migratorio o hacia la espalda, asimetría de pulsos o presión, déficit neurológico.',
+      options: [['Sí, sospecha de disección', 'diseccionSi'], ['No', 'ecg']],
+    },
+    diseccionSi: {
+      title: 'Sospecha de disección aórtica',
+      level: 3,
+      actions: [
+        'No dar antiagregantes ni anticoagulantes',
+        'AngioTAC de tórax (ecocardiograma transesofágico si está inestable)',
+        'Betabloqueo IV antes de cualquier vasodilatador: FC cercana a 60 lpm y PAS 100-120 mmHg',
+        'Analgesia opioide y evaluación urgente por cirugía cardiovascular',
+      ],
+      links: ['c1-s8', 'c5-s3'],
+      drugs: ['esmolol', 'labetalol', 'nitroprusiato', 'morfina'],
+    },
+    ecg: {
+      title: '¿Qué muestra el ECG?',
+      options: [
+        ['Supradesnivel del ST o bloqueo de rama izquierda nuevo', 'iamcest'],
+        ['Infradesnivel del ST o T invertida', 'sinSdst'],
+        ['Normal o no diagnóstico', 'troponina'],
+      ],
+    },
+    iamcest: {
+      title: 'IAM con supradesnivel del ST: ¿hay angioplastía disponible en menos de 120 min?',
+      level: 3,
+      actions: [
+        'Activar Código Infarto',
+        'Aspirina 300 mg masticada, segundo antiagregante y anticoagulación según protocolo',
+        'IAM inferior: pedir V4R; si hay compromiso de ventrículo derecho, no dar nitratos ni morfina',
+        'Oxígeno solo si SatO₂ <90%',
+      ],
+      links: ['c19-s1', 'c1-s1'],
+      drugs: ['aspirina', 'clopidogrel', 'ticagrelor', 'enoxaparina', 'heparina'],
+      options: [['Sí, angioplastía disponible', 'angioplastia'], ['No disponible a tiempo', 'fibrinolisis']],
+    },
+    angioplastia: {
+      title: 'Angioplastía primaria',
+      level: 3,
+      actions: ['Traslado inmediato a hemodinamia: meta puerta-balón <90 min', 'Monitorizar con desfibrilador disponible'],
+      links: ['c19-s1'],
+    },
+    fibrinolisis: {
+      title: 'Fibrinolisis',
+      level: 3,
+      actions: [
+        'Revisar contraindicaciones (hemorragia intracraneal previa, ACV isquémico reciente, sangrado activo, disección)',
+        'Tenecteplasa ajustada por peso, con antiagregación y anticoagulación',
+        'Derivar a centro con hemodinamia',
+      ],
+      links: ['c1-s1'],
+      drugs: ['tenecteplasa'],
+    },
+    sinSdst: {
+      title: 'SCA sin supradesnivel del ST',
+      level: 2,
+      actions: [
+        'Troponina de alta sensibilidad seriada',
+        'Aspirina, segundo antiagregante y anticoagulación si no hay contraindicación',
+        'Nitroglicerina solo con PAS ≥90, sin sildenafilo reciente ni infarto de ventrículo derecho',
+        'Coronariografía urgente (<2 h) si muy alto riesgo; precoz (<24 h) si alto riesgo',
+      ],
+      links: ['c19-s2', 'c1-s1'],
+      drugs: ['aspirina', 'clopidogrel', 'enoxaparina', 'nitroglicerina'],
+    },
+    troponina: {
+      title: 'Troponina de alta sensibilidad seriada (0 y 1-3 h)',
+      detail: 'Un ECG normal no descarta SCA: repetirlo a los 15-30 minutos si la sospecha persiste.',
+      links: ['c5-s1'],
+      options: [['Elevada o con cambio significativo', 'sinSdst'], ['Negativa y sin cambios', 'otras']],
+    },
+    otras: {
+      title: 'SCA poco probable: ¿qué sugiere el cuadro?',
+      detail: 'Si la sospecha clínica de SCA sigue alta, mantener en observación aunque la troponina sea negativa.',
+      options: [
+        ['Disnea súbita, dolor pleurítico o taquicardia', 'tep'],
+        ['Mejora al inclinarse adelante o hay frote', 'pericarditis'],
+        ['Murmullo disminuido de un lado', 'neumotorax'],
+        ['Fiebre, tos o foco al examen', 'neumonia'],
+        ['Ninguno de los anteriores', 'noCardiaco'],
+      ],
+    },
+    tep: {
+      title: 'Estudiar tromboembolismo pulmonar',
+      level: 2,
+      actions: ['Calcular probabilidad con Wells o Ginebra', 'Dímero D si la probabilidad no es alta; angioTAC si es alta o el dímero es positivo'],
+      links: ['c5-s2', 'c1-s7'],
+      scores: ['wells-tep', 'ginebra'],
+    },
+    pericarditis: {
+      title: 'Probable pericarditis',
+      level: 1,
+      actions: ['Ecocardiograma para descartar derrame o taponamiento', 'AINE en dosis altas asociado a colchicina'],
+      links: ['c5-s5', 'c19-s11'],
+      drugs: ['ibuprofeno', 'aspirina'],
+    },
+    neumotorax: {
+      title: 'Estudiar neumotórax',
+      level: 2,
+      actions: ['Ecografía o radiografía de tórax', 'Si hay hipotensión o desviación traqueal: descomprimir sin esperar imágenes'],
+      links: ['c5-s4', 'c2-s5'],
+    },
+    neumonia: {
+      title: 'Estudiar neumonía',
+      level: 1,
+      actions: ['Radiografía de tórax y saturación', 'Estratificar con CURB-65'],
+      links: ['c5-s6'],
+      scores: ['curb65'],
+    },
+    noCardiaco: {
+      title: 'Causa no cardíaca probable (diagnóstico de exclusión)',
+      level: 0,
+      actions: [
+        'Considerar origen musculoesquelético, esofágico, ansiedad o herpes zóster',
+        'Antes del alta: troponinas negativas, ECG sin cambios y bajo riesgo clínico',
+        'Indicar signos de alarma para volver de inmediato',
+      ],
+      links: ['c5-s7', 'c5-s8', 'c5-s9', 'c5-s10'],
+    },
+  },
+}

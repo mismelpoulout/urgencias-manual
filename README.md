@@ -40,6 +40,12 @@ Fármacos en `src/content/drugs.js`, reglas en `src/content/interactions.js`, co
 `src/content/combos.js`. El comprobador nunca declara compatible una pareja por falta de datos.
 **Este contenido requiere validación médica y farmacéutica.**
 
+## Herramientas de turno (capítulo 23)
+
+- Cronómetros de sepsis y paro: lógica en `src/lib/sepsis.js` y `src/lib/arrest.js`; se guardan en el navegador.
+- Calculadora de infusiones: `src/lib/infusion.js` y presets en `src/content/infusions.js`.
+- Algoritmos: un archivo de datos por algoritmo en `src/content/algorithms/`.
+
 ## Trazados ECG interactivos
 
 Cada `<EcgTrace>` se puede reproducir y pausar, con bip en cada QRS, tono opcional para la onda P,

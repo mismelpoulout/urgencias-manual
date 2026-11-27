@@ -1,6 +1,7 @@
 import Callout from '../../components/content/Callout.jsx'
 import EcgTrace from '../../components/content/EcgTrace.jsx'
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 
 // Capítulo 19 · Electrocardiografía de urgencia
 export default function Capitulo19() {
@@ -193,6 +194,7 @@ export default function Capitulo19() {
         </Callout>
       </Section>
       <Section id="c19-s7" title="7. Fibrilación ventricular / Taquicardia ventricular sin pulso">
+        <ToolLink to="c23-s2">Abrir cronómetro de paro</ToolLink>
         <p><strong>Clínica:</strong> paro cardiorrespiratorio, pérdida súbita de conciencia, ausencia de pulso palpable.</p>
         <p><strong>Diagnóstico ECG:</strong></p>
         <ul>

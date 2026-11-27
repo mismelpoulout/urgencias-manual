@@ -1,0 +1,121 @@
+// Código ACV en adultos (capítulos 10 y 14).
+export default {
+  id: 'acv',
+  start: 'glicemia',
+  nodes: {
+    glicemia: {
+      title: 'Déficit neurológico súbito: ¿hay hipoglicemia?',
+      detail: 'Asegurar ABC y medir glicemia capilar de inmediato.',
+      options: [['Sí, hipoglicemia', 'hipoglicemia'], ['No', 'tac']],
+    },
+    hipoglicemia: {
+      title: 'Corregir la hipoglicemia y reevaluar',
+      level: 2,
+      actions: ['Glucosa IV (tiamina antes si hay alcoholismo o desnutrición)', 'Si el déficit persiste tras corregir, activar el Código ACV y reiniciar este algoritmo'],
+      links: ['c10-s2'],
+      drugs: ['glucosa', 'tiamina'],
+    },
+    tac: {
+      title: 'Código ACV: ¿qué muestra la TAC sin contraste?',
+      detail: 'Registrar la hora en que se le vio sano por última vez, aplicar NIHSS y obtener la TAC en menos de 25 minutos.',
+      links: ['c10-s2'],
+      scores: ['nihss'],
+      options: [['Hemorragia intraparenquimatosa', 'hemorragia'], ['Hemorragia subaracnoidea', 'subaracnoidea'], ['Sin hemorragia', 'deficit']],
+    },
+    hemorragia: {
+      title: 'ACV hemorrágico',
+      level: 3,
+      actions: [
+        'PAS <140 mmHg de forma gradual en la primera hora',
+        'Revertir la anticoagulación; sin antiagregantes ni trombolíticos',
+        'Evaluación neuroquirúrgica y unidad crítica',
+      ],
+      links: ['c14-s7'],
+      drugs: ['labetalol', 'nicardipino', 'complejo-protrombinico', 'idarucizumab', 'vitamina-k'],
+      scores: ['ich'],
+    },
+    subaracnoidea: {
+      title: 'Hemorragia subaracnoidea',
+      level: 3,
+      actions: ['Neurocirugía urgente y angioTAC', 'Nimodipino, control de presión y analgesia', 'Sin antiagregantes ni trombolíticos'],
+      links: ['c14-s8'],
+      drugs: ['nimodipino', 'labetalol'],
+      scores: ['hunthess', 'fisher'],
+    },
+    deficit: {
+      title: '¿El déficit sigue presente?',
+      options: [['Sí, persiste', 'ventana'], ['No, se resolvió por completo', 'ait']],
+    },
+    ait: {
+      title: 'Probable ataque isquémico transitorio',
+      level: 2,
+      actions: [
+        'Estratificar con ABCD² y estudiar vasos y corazón',
+        'Aspirina 300 mg de carga tras descartar hemorragia',
+        'Con ABCD² ≥4: hospitalizar y doble antiagregación por 21 días',
+      ],
+      links: ['c14-s5'],
+      drugs: ['aspirina', 'clopidogrel'],
+      scores: ['abcd2'],
+    },
+    ventana: {
+      title: '¿Han pasado 4,5 horas o menos desde que se le vio sano?',
+      options: [['Sí, 4,5 h o menos', 'contraindicaciones'], ['Más de 4,5 h o desconocido', 'vasoSinLisis']],
+    },
+    contraindicaciones: {
+      title: '¿Hay alguna contraindicación para la trombolisis?',
+      detail: 'Entre otras: hemorragia intracraneal previa, ACV o TEC grave en 3 meses, cirugía mayor o sangrado activo recientes, anticoagulación con efecto activo, plaquetas <100.000, INR >1,7 o presión que no baja de 185/110. La lista no es exhaustiva: revisar el protocolo local.',
+      options: [['No hay contraindicaciones', 'trombolisis'], ['Sí, hay al menos una', 'vasoSinLisis']],
+    },
+    trombolisis: {
+      title: 'Trombolisis intravenosa',
+      level: 3,
+      actions: [
+        'Presión <185/110 mmHg antes de iniciar y <180/105 mmHg después',
+        'Alteplasa 0,9 mg/kg (máximo 90 mg): 10% en bolo en 1 minuto y el resto en 60 minutos',
+        'Sin antiagregantes ni anticoagulantes por 24 horas',
+        'Control neurológico seriado; ante deterioro, suspender y repetir la TAC',
+      ],
+      links: ['c14-s1'],
+      drugs: ['alteplasa', 'labetalol'],
+      options: [['Continuar: evaluar gran vaso', 'vasoConLisis']],
+    },
+    vasoConLisis: {
+      title: '¿Oclusión de gran vaso candidata a trombectomía?',
+      detail: 'AngioTAC; hasta 24 horas en pacientes seleccionados por imagen.',
+      links: ['c14-s1'],
+      options: [['Sí', 'trombectomiaConLisis'], ['No', 'unidadConLisis']],
+    },
+    trombectomiaConLisis: {
+      title: 'Trombectomía mecánica tras trombolisis',
+      level: 3,
+      actions: ['Derivar de inmediato, sin esperar la respuesta a la trombolisis', 'Presión <180/105 mmHg', 'Sin antiagregantes por 24 horas'],
+      links: ['c14-s1'],
+    },
+    unidadConLisis: {
+      title: 'Unidad de ACV tras trombolisis',
+      level: 2,
+      actions: ['Presión <180/105 mmHg', 'TAC de control a las 24 horas y recién entonces aspirina si no hay hemorragia'],
+      links: ['c14-s1'],
+    },
+    vasoSinLisis: {
+      title: 'Sin trombolisis: ¿oclusión de gran vaso candidata a trombectomía?',
+      detail: 'AngioTAC; hasta 24 horas en pacientes seleccionados por imagen.',
+      links: ['c14-s1'],
+      options: [['Sí', 'trombectomiaSinLisis'], ['No', 'sinReperfusion']],
+    },
+    trombectomiaSinLisis: {
+      title: 'Trombectomía mecánica',
+      level: 3,
+      actions: ['Derivar de inmediato', 'Presión <180/105 mmHg', 'Antiagregación según el equipo de neurointervención'],
+      links: ['c14-s1'],
+    },
+    sinReperfusion: {
+      title: 'Manejo médico del ACV isquémico',
+      level: 2,
+      actions: ['Aspirina 300 mg una vez descartada la hemorragia', 'Permitir presión hasta 220/120 mmHg', 'Evaluar deglución e ingresar a unidad de ACV'],
+      links: ['c14-s1'],
+      drugs: ['aspirina'],
+    },
+  },
+}

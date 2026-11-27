@@ -1,5 +1,6 @@
 import Callout from '../../components/content/Callout.jsx'
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 
 // Capítulo 1 · Las 10 urgencias cardiovasculares más frecuentes
 export default function Capitulo01() {
@@ -162,6 +163,7 @@ export default function Capitulo01() {
         </Callout>
       </Section>
       <Section id="c1-s4" title="4. Taquicardia / fibrilación ventricular — paro cardíaco">
+        <ToolLink to="c23-s2">Abrir cronómetro de paro</ToolLink>
         <p><strong>Identificación:</strong> colapso súbito con pérdida de conciencia y ausencia de pulso central.</p>
         <p><strong>Cuadro clínico:</strong></p>
         <ul>

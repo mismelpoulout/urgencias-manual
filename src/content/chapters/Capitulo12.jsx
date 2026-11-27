@@ -1,6 +1,7 @@
 import Callout from '../../components/content/Callout.jsx'
 import Flow, { FlowStep } from '../../components/content/Flow.jsx'
 import Section from '../../components/content/Section.jsx'
+import ToolLink from '../../components/tools/ToolLink.jsx'
 import Table from '../../components/content/Table.jsx'
 
 // Capítulo 12 · Sepsis y shock séptico — Guías SOCHIMI
@@ -114,6 +115,7 @@ export default function Capitulo12() {
         </Callout>
       </Section>
       <Section id="c12-s3" title="3. Paquete (bundle) SOCHIMI para el manejo inicial">
+        <ToolLink to="c23-s1">Abrir cronómetro de Código Sepsis</ToolLink>
         <p>El tiempo cero es el <strong>triaje en urgencia</strong> (o la primera anotación clínica con todos los elementos de sepsis si el paciente está en otro lugar).</p>
         <Table>
           <thead>
@@ -359,6 +361,7 @@ export default function Capitulo12() {
         </Flow>
       </Section>
       <Section id="c12-s7" title="7. Vasoactivos: dosis y preparación">
+        <ToolLink to="c23-s3">Calcular la velocidad de infusión</ToolLink>
         <Table>
           <thead>
             <tr>

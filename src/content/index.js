@@ -21,6 +21,7 @@ import Capitulo19 from './chapters/Capitulo19.jsx'
 import Capitulo20 from './chapters/Capitulo20.jsx'
 import Capitulo21 from './chapters/Capitulo21.jsx'
 import Capitulo22 from './chapters/Capitulo22.jsx'
+import Capitulo23 from './chapters/Capitulo23.jsx'
 import Anexo from './chapters/Anexo.jsx'
 import { DRUG_GROUPS } from './drugs.js'
 
@@ -416,6 +417,21 @@ export const chapters = [
       ...DRUG_GROUPS.map((g) => ({ id: `c22-${g.id}`, title: g.name })),
       { id: "c22-combos", title: "Combinaciones de tratamiento por cuadro" },
       { id: "c22-mezclas", title: "Comprobador: ¿se pueden mezclar?" },
+    ],
+  },
+  {
+    id: "cap-23",
+    n: "23",
+    title: "Herramientas de turno: cronómetros, infusiones y algoritmos",
+    isNew: true,
+    Content: Capitulo23,
+    sections: [
+      { id: "c23-s1", title: "1. Cronómetro de Código Sepsis" },
+      { id: "c23-s2", title: "2. Cronómetro de paro cardíaco" },
+      { id: "c23-s3", title: "3. Calculadora de infusiones" },
+      { id: "c23-s4", title: "4. Algoritmo: dolor torácico" },
+      { id: "c23-s5", title: "5. Algoritmo: accidente cerebrovascular" },
+      { id: "c23-s6", title: "6. Algoritmo: anafilaxia" },
     ],
   },
   {
