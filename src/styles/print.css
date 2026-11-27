@@ -1,0 +1,81 @@
+/* Impresión A4, un capítulo por página */
+@page {
+  size: A4;
+  margin: 16mm 15mm 18mm;
+}
+@page {
+  @bottom-center {
+    content: counter(page);
+    font:
+      9pt Inter,
+      sans-serif;
+    color: #555;
+  }
+}
+@page :first {
+  @bottom-center {
+    content: none;
+  }
+}
+
+@media print {
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+    --color-bg: #fff;
+    --color-bg2: #f3f4f6;
+    --color-ink: #000;
+    --color-ink2: #333;
+    --color-line: #bbb;
+    --color-paper: #fff;
+    --color-grid: #f0b9c0;
+    --color-grid2: #fae3e6;
+    --color-trace: #000;
+    --color-bluet: #eef4fb;
+    --color-redt: #fdeef0;
+    --color-ambert: #fff7e6;
+  }
+  body {
+    font-size: 10.2pt;
+    line-height: 1.45;
+    background: #fff;
+    color: #000;
+  }
+  .chapter {
+    max-width: none;
+    padding-top: 0;
+    break-before: page;
+  }
+  .chapter > h1 {
+    font-size: 24pt;
+  }
+  .chapter h2 {
+    font-size: 15pt;
+    margin: 7mm 0 3mm;
+    break-after: avoid;
+  }
+  .chapter h3 {
+    font-size: 12pt;
+    break-after: avoid;
+  }
+  .chapter p,
+  .chapter li {
+    orphans: 3;
+    widows: 3;
+  }
+  .chapter a {
+    color: #000;
+    text-decoration: none;
+  }
+  .tw {
+    container-type: normal;
+    overflow: visible;
+    border: 0.2mm solid #bbb;
+  }
+  .chapter .tw table {
+    font-size: 8.8pt;
+  }
+  .chapter tr {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,70 @@
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
+
+  --color-bg: light-dark(#ffffff, #0f1217);
+  --color-bg2: light-dark(#f5f6f8, #161a21);
+  --color-bg3: light-dark(#eceef2, #1d222b);
+  --color-ink: light-dark(#121821, #e8ecf1);
+  --color-ink2: light-dark(#4a5361, #a7b0bd);
+  --color-line: light-dark(#dde1e7, #2a313c);
+  --color-red: light-dark(#c8102e, #ff5d6c);
+  --color-redt: light-dark(#fdecee, #2a1519);
+  --color-blue: light-dark(#0b4f8a, #79b6ff);
+  --color-bluet: light-dark(#e8f1fa, #13202f);
+  --color-grid: light-dark(#f3c4ca, #3a2328);
+  --color-grid2: light-dark(#f9e1e4, #24171a);
+  --color-paper: light-dark(#fff7f8, #140f11);
+  --color-trace: light-dark(#111111, #ffd6da);
+  --color-amber: light-dark(#8a5a00, #f0c068);
+  --color-ambert: light-dark(#fff6e0, #2a2213);
+  --color-mark: light-dark(#ffe27a, #6b5300);
+
+  /* Puntos de quiebre del diseño original */
+  --breakpoint-xs: 601px;
+  --breakpoint-sm: 701px;
+  --breakpoint-md: 961px;
+  --breakpoint-lg: 1101px;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+  * {
+    min-width: 0;
+  }
+  html {
+    scroll-padding-top: 84px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply m-0 overflow-x-clip bg-bg font-sans text-[16px] leading-[1.62] text-ink xs:text-[16.5px];
+  }
+  a {
+    @apply text-blue underline;
+  }
+  ::placeholder {
+    color: light-dark(#757575, #a9a9a9);
+  }
+  button {
+    cursor: pointer;
+  }
+  :is(a, button, input, select, summary):focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-red) 45%, transparent);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
