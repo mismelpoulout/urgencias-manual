@@ -1,4 +1,4 @@
-// Cronómetro de paro (capítulos 1 y 19): ciclos de 2 min, adrenalina cada 3-5 min,
+// Cronómetro de paro (capítulos 1 y 21): ciclos de 2 min, adrenalina cada 3-5 min,
 // amiodarona 300 mg tras la 3.ª descarga y 150 mg si persiste.
 export const CYCLE = 120_000
 export const ADRENALINE_MIN = 180_000

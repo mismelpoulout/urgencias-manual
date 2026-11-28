@@ -1,4 +1,4 @@
-// Dolor torácico en adultos (capítulos 1, 5 y 19).
+// Dolor torácico en adultos (capítulos 1, 5 y 21).
 export default {
   id: 'dolor-toracico',
   start: 'estabilidad',

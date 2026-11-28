@@ -8,7 +8,7 @@ import anaphylaxis from '../algorithms/anaphylaxis.js'
 import chestPain from '../algorithms/chestPain.js'
 import stroke from '../algorithms/stroke.js'
 
-// Capítulo 22 · Herramientas de turno
+// Capítulo 24 · Herramientas de turno
 export default function Capitulo23() {
   return (
     <>

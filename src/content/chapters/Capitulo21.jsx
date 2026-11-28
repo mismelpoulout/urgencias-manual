@@ -2,12 +2,13 @@ import ChapterRefs from '../../components/content/ChapterRefs.jsx'
 import Callout from '../../components/content/Callout.jsx'
 import Section from '../../components/content/Section.jsx'
 import Table from '../../components/content/Table.jsx'
+import { chapterNumber } from '../index.js'
 
-// Capítulo 20 · Resumen importante: abordaje integral del paciente en urgencia (Fases 1, 2 y 3)
+// Capítulo 22 · Resumen importante: abordaje integral del paciente en urgencia (Fases 1, 2 y 3)
 export default function Capitulo21() {
   return (
     <>
-      <p>Este capítulo cierra el manual integrando los contenidos de los Capítulos 1 al 19 en una lógica clínica única: <strong>toda consulta de urgencia se resuelve en tres fases secuenciales</strong>. No reemplaza el detalle de cada capítulo — es el mapa que recuerda, en segundos, qué hacer primero, qué buscar después y cómo cerrar el caso.</p>
+      <p>Este capítulo cierra el manual integrando los contenidos de los Capítulos 1 al {chapterNumber('c19-s1')} en una lógica clínica única: <strong>toda consulta de urgencia se resuelve en tres fases secuenciales</strong>. No reemplaza el detalle de cada capítulo — es el mapa que recuerda, en segundos, qué hacer primero, qué buscar después y cómo cerrar el caso.</p>
       <Callout type="alerta">
         <p>Las tres fases no son rígidas: en el paciente crítico se superponen (se reanima mientras se diagnostica). El orden importa como <em>prioridad de pensamiento</em>, no como pasos obligatoriamente secuenciales.</p>
       </Callout>
@@ -124,7 +125,7 @@ export default function Capitulo21() {
             <p>Ecografía a la cabecera (protocolo RUSH/pulmonar): shock indiferenciado, disnea, sospecha de taponamiento <ChapterRefs to={['c10-s10', 'c11-s10', 'c19-s12']} /></p>
           </li>
           <li>
-            <p>TAC de cerebro sin contraste: déficit neurológico agudo, cefalea con banderas rojas, TEC en anticoagulado <ChapterRefs to={['c6-s4', 'c14-s1', 'c18-s1']} /></p>
+            <p>TAC de cerebro sin contraste: déficit neurológico agudo, cefalea con banderas rojas, TEC en anticoagulado <ChapterRefs to={['c6-s4', 'c14-s1', 'c18-s1', 'c24-s8']} /></p>
           </li>
           <li>
             <p>Laboratorio dirigido, no "panel completo por costumbre": troponina seriada, lactato, electrolitos, función renal según la hipótesis clínica</p>
@@ -166,7 +167,7 @@ export default function Capitulo21() {
             <p>Corrección farmacológica escalonada del dolor según intensidad y causa (escalera analgésica, bloqueos cuando corresponda) <ChapterRefs to={['c8-s1']} /></p>
           </li>
           <li>
-            <p>Manejo específico por tipo de shock: volumen y control del sangrado en hipovolémico, vasopresor en distributivo, tratar la causa en obstructivo y cardiogénico <ChapterRefs to={['c11-s1']} /></p>
+            <p>Manejo específico por tipo de shock: volumen y control del sangrado en hipovolémico, vasopresor en distributivo, tratar la causa en obstructivo y cardiogénico <ChapterRefs to={['c11-s1', 'c24-s6']} /></p>
           </li>
           <li>
             <p>Corrección gradual (nunca rápida) de hiponatremia y de trastornos hidroelectrolíticos en el adulto mayor <ChapterRefs to={['c13-s6', 'c18-s8']} /></p>
@@ -202,7 +203,7 @@ export default function Capitulo21() {
             <p>¿Existe plan de seguimiento (control médico, especialista, programa de prevención de caídas, salud mental)?</p>
           </li>
           <li>
-            <p>¿Se evaluó el riesgo suicida en todo paciente con síntomas depresivos o crisis vital, y se dejó plan claro si el riesgo es bajo-moderado? <ChapterRefs to={['c18-s9']} /></p>
+            <p>¿Se evaluó el riesgo suicida en todo paciente con síntomas depresivos o crisis vital, y se dejó plan claro si el riesgo es bajo-moderado? <ChapterRefs to={['c18-s9', 'c25-s18']} /></p>
           </li>
         </ul>
         <h3>3.4 Reglas de oro de esta fase</h3>
@@ -248,7 +249,7 @@ export default function Capitulo21() {
             </tr>
           </tbody>
         </Table>
-        <p><em>Manual de bolsillo — Capítulo 20: Resumen importante. Este capítulo integra en tres fases de razonamiento clínico el contenido completo de los Capítulos 1 a 19. No sustituye el detalle clínico, diagnóstico y terapéutico de cada capítulo específico, y debe usarse junto con los protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 22: Resumen importante. Este capítulo integra en tres fases de razonamiento clínico el contenido completo de los Capítulos 1 a {chapterNumber('c19-s1')}. No sustituye el detalle clínico, diagnóstico y terapéutico de cada capítulo específico, y debe usarse junto con los protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )

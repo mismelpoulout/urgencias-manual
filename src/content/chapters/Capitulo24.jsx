@@ -5,7 +5,7 @@ import Section from '../../components/content/Section.jsx'
 import Table from '../../components/content/Table.jsx'
 import ToolLink from '../../components/tools/ToolLink.jsx'
 
-// Capítulo 23 · Politraumatizado (el id c24 es el ancla permanente, no el número del capítulo)
+// Capítulo 19 · Politraumatizado (el id c24 es el ancla permanente, no el número del capítulo)
 export default function Capitulo24() {
   return (
     <>

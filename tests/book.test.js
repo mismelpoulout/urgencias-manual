@@ -11,7 +11,8 @@ test('capítulos numerados en orden de lectura y el atlas de imágenes al final'
   const numbers = chapters.filter((c) => c.n !== 'A').map((c) => Number(c.n))
   assert.deepEqual(numbers, numbers.map((_, i) => i + 1))
   assert.equal(chapters.at(-1).id, 'cap-20')
-  assert.deepEqual(chapters.slice(-3, -1).map((c) => c.id), ['cap-24', 'cap-25'])
+  const ecg = chapters.findIndex((c) => c.id === 'cap-19')
+  assert.deepEqual(chapters.slice(ecg - 2, ecg).map((c) => c.id), ['cap-24', 'cap-25'], 'trauma e intoxicaciones van antes de electrocardiografía')
 })
 
 test('el índice y los capítulos tienen las mismas secciones', () => {

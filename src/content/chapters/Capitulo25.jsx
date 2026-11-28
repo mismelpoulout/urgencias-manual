@@ -6,7 +6,7 @@ import { EcgGrid } from '../../components/content/Grids.jsx'
 import Section from '../../components/content/Section.jsx'
 import Table from '../../components/content/Table.jsx'
 
-// Capítulo 24 · Intoxicaciones y autólisis fallidas (el id c25 es el ancla permanente, no el número del capítulo)
+// Capítulo 20 · Intoxicaciones y autólisis fallidas (el id c25 es el ancla permanente, no el número del capítulo)
 
 const PARTS = [
   ['clinica', 'Clínica'],
