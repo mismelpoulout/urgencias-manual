@@ -61,5 +61,5 @@ Al agregar un ritmo hay que definirlo en `ecg.js`, `ecgGuide.js` y `ecgClinical.
 ## Diseño responsivo
 
 Las tablas usan `<Table>` con `<thead>` y `<tbody>`. Cuando disponen de menos de 640 px,
-cada fila se muestra como una ficha con el nombre de la columna sobre cada valor;
-las etiquetas se toman del encabezado, no hay que escribirlas.
+cada fila se muestra como una ficha: la primera celda es el título y las demás llevan el nombre de su columna
+sobre el valor; los valores cortos van lado a lado. Las etiquetas se toman del encabezado, no hay que escribirlas.
