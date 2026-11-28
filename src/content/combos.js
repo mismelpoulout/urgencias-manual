@@ -26,6 +26,8 @@ export const COMBOS = [
     text: 'AINE de primera línea, opioide si persiste y antiemético si hay náuseas.' },
   { id: 'edema', name: 'Edema pulmonar agudo', section: 'c9-s7', drugs: ['furosemida', 'nitroglicerina'],
     text: 'Diurético de asa y nitrato con presión adecuada; evitar AINE.' },
-  { id: 'organofosforados', name: 'Intoxicación por organofosforados', drugs: ['atropina', 'pralidoxima'],
+  { id: 'trauma-hemorragico', name: 'Hemorragia traumática', section: 'c24-s6', drugs: ['acido-tranexamico', 'fibrinogeno', 'cloruro-calcio'],
+    text: 'Hemoderivados 1:1:1; ácido tranexámico antes de 3 horas, fibrinógeno si es menor de 1,5 g/L y calcio según nivel iónico.' },
+  { id: 'organofosforados', name: 'Intoxicación por organofosforados', section: 'c25-s15', drugs: ['atropina', 'pralidoxima'],
     text: 'Atropina titulada a secreciones y pralidoxima.' },
 ]

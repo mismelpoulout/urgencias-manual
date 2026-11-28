@@ -875,6 +875,13 @@ const DATA = {
     'Oxidación no enzimática (sin CYP450); excreción renal.',
     'Mielosupresión, neuropatía periférica y óptica, síndrome serotoninérgico, acidosis láctica, hipoglicemia, diarrea.',
   ],
+  'vacuna-antitetanica': [
+    'Toxoide inactivado que induce anticuerpos contra la toxina tetánica; la inmunoglobulina aporta protección pasiva inmediata.',
+    'Refuerzo: cerca de 1 semana. Primovacunación: requiere el esquema completo.',
+    'No aplica: la protección dura alrededor de 10 años tras un esquema completo.',
+    'El antígeno lo procesa el sistema inmune.',
+    'Dolor, eritema y aumento de volumen local, fiebre, malestar; anafilaxia rara.',
+  ],
 
   // Broncodilatadores, corticoides y antialérgicos
   salbutamol: [
@@ -1319,6 +1326,13 @@ const DATA = {
     'Hígado, riñón y plasma.',
     'Náuseas, vómitos, hiperglicemia, hipokalemia, taquicardia, hipoglicemia de rebote.',
   ],
+  manitol: [
+    'Diurético osmótico: aumenta la osmolaridad plasmática, extrae agua del cerebro y reduce la presión intracraneal.',
+    'IV: 15-30 min; el efecto dura entre 1,5 y 6 h.',
+    'Cerca de 1-2 h; mayor en falla renal.',
+    'Metabolismo mínimo; excreción renal sin cambios.',
+    'Hipotensión por diuresis, deshidratación, alteraciones del sodio y potasio, lesión renal, congestión pulmonar al inicio, hipertensión intracraneal de rebote.',
+  ],
 
   // Antídotos
   naloxona: [
@@ -1390,6 +1404,48 @@ const DATA = {
     'Bifásica: cerca de 1 h y 6 h.',
     'Enzimas plasmáticas; la ferrioxamina se excreta por riñón y bilis.',
     'Hipotensión con infusión rápida, distrés respiratorio con infusiones prolongadas, infecciones, toxicidad visual y auditiva, daño renal.',
+  ],
+  'anticuerpos-antidigoxina': [
+    'Fragmentos de anticuerpo que se unen a la digoxina libre e impiden su acción sobre la bomba Na-K.',
+    'IV: respuesta en 30-60 min; efecto máximo en alrededor de 4 h.',
+    '15-20 h; mayor en falla renal.',
+    'El complejo se elimina por el riñón y el sistema reticuloendotelial.',
+    'Hipokalemia, empeoramiento de la falla cardíaca, respuesta ventricular rápida en la FA, alergia. La digoxinemia total queda falsamente alta.',
+  ],
+  ciproheptadina: [
+    'Antihistamínico H1 con antagonismo serotoninérgico (5-HT2A) y efecto anticolinérgico.',
+    'VO: 1-2 h.',
+    'Cerca de 8 h; sus metabolitos persisten más.',
+    'Hígado (glucuronidación); excreción renal y fecal.',
+    'Sedación, boca seca, retención urinaria, hipotensión, confusión.',
+  ],
+  bromocriptina: [
+    'Agonista dopaminérgico D2: restituye el tono dopaminérgico central.',
+    'VO: efecto inicial en horas; la mejoría clínica toma 1-3 días.',
+    'Entre 4 y 15 h según el estudio.',
+    'Hígado (CYP3A4); excreción principalmente biliar.',
+    'Náuseas, vómitos, hipotensión, confusión, alucinaciones, vasoespasmo.',
+  ],
+  piridoxina: [
+    'Cofactor de la síntesis de GABA; en el etilenglicol desvía el ácido glioxílico hacia metabolitos no tóxicos.',
+    'IV: minutos en las convulsiones por isoniazida.',
+    'Reservas corporales: 2-3 semanas.',
+    'Hígado a piridoxal fosfato; excreción renal.',
+    'Neuropatía sensitiva con dosis altas o prolongadas, náuseas, cefalea, parestesias.',
+  ],
+  levocarnitina: [
+    'Transporta ácidos grasos a la mitocondria y ayuda a restaurar la beta-oxidación y el ciclo de la urea, reduciendo el amonio.',
+    'IV: el amonio desciende en horas.',
+    'Cerca de 17 h (fase terminal).',
+    'Metabolismo escaso; excreción renal.',
+    'Náuseas, vómitos, diarrea, olor corporal; convulsiones raras.',
+  ],
+  etanol: [
+    'Compite por la alcohol deshidrogenasa y frena la formación de metabolitos tóxicos del metanol y del etilenglicol.',
+    'IV: inmediato al alcanzar la concentración objetivo.',
+    'Eliminación de orden cero: la alcoholemia baja cerca de 15-20 mg/dL por hora, más rápido en consumidores crónicos.',
+    'Hígado (alcohol deshidrogenasa, CYP2E1 y aldehído deshidrogenasa).',
+    'Depresión de conciencia y respiratoria, hipoglicemia, hipotensión, vómitos, flebitis, pancreatitis.',
   ],
 }
 

@@ -6,7 +6,7 @@ import DrugTable from '../../components/drugs/DrugTable.jsx'
 import MixChecker from '../../components/drugs/MixChecker.jsx'
 import { DRUG_GROUPS } from '../drugs.js'
 
-// Capítulo 22 · Vademécum. Los datos se editan en content/drugs.js, pharmacology.js, interactions.js y combos.js
+// Capítulo 21 · Vademécum. Los datos se editan en content/drugs.js, pharmacology.js, interactions.js y combos.js
 export default function Capitulo22() {
   const [selected, setSelected] = useState([])
 

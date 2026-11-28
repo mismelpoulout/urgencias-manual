@@ -481,7 +481,7 @@ export default function Capitulo10() {
         <Callout type="perla">
           <p>En shock anafiláctico la Adrenalina IM es la primera y más importante medida — los antihistamínicos y corticoides son manejo adyuvante, nunca de primera línea.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 9: Síndromes más comunes en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 10: Síndromes más comunes en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )

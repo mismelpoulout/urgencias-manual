@@ -5,7 +5,7 @@ import Section from '../../components/content/Section.jsx'
 import Table from '../../components/content/Table.jsx'
 import WikiImage from '../../components/content/WikiImage.jsx'
 
-// Capítulo 20 · Atlas de imágenes: ECG, radiografía, TAC y laboratorio
+// Capítulo 25 · Atlas de imágenes (el último del libro). El id c20 es el ancla permanente
 export default function Capitulo20() {
   return (
     <>

@@ -484,10 +484,7 @@ export default function Anexo() {
             <p><strong>Clínica:</strong> Clases I-II bajo riesgo; III intermedio; IV-V alto riesgo.</p>
           </li>
           <li>
-            <p><strong>Conducta:</strong> Clases IV-V → hospitalización, considerar UCI en clase</p>
-            <ol type="A" start={22}>
-              <li></li>
-            </ol>
+            <p><strong>Conducta:</strong> Clases IV-V → hospitalización, considerar UCI en clase V.</p>
           </li>
         </ul>
         <ScoreCalculator id="psi" />

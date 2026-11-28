@@ -35,7 +35,7 @@ export const ECG_CLINICAL = {
     conditions: ['Cardiopatía isquémica e infarto previo', 'Miocardiopatías, canalopatías', 'Hipokalemia, hipomagnesemia, fármacos que prolongan el QT, intoxicaciones'],
     symptoms: ['Palpitaciones, dolor torácico, disnea', 'Presíncope o síncope'],
     signs: ['Hipotensión, shock o edema pulmonar', 'Puede no tener pulso: es un paro cardíaco', 'Ondas "a cañón" yugulares'],
-    links: ['c19-s6', 'c1-s4'],
+    links: ['c19-s6', 'c1-s4', 'c25-s4'],
   },
   fv: {
     conditions: ['Infarto agudo (causa principal)', 'Hiper o hipokalemia, hipoxia, hipotermia', 'Electrocución, canalopatías, tóxicos'],
@@ -65,7 +65,7 @@ export const ECG_CLINICAL = {
     conditions: ['Infarto (inferior o anterior)', 'Degeneración del sistema de conducción', 'Intoxicación por betabloqueadores, calcioantagonistas o digoxina; hiperkalemia; enfermedad de Lyme o Chagas'],
     symptoms: ['Síncope (Stokes-Adams), mareo', 'Disnea, fatiga, confusión en mayores'],
     signs: ['Bradicardia marcada y regular', 'Hipotensión, signos de bajo débito', 'Ondas "a cañón" yugulares'],
-    links: ['c19-s8', 'c1-s5'],
+    links: ['c19-s8', 'c1-s5', 'c25-s11'],
   },
   pericard: {
     conditions: ['Pericarditis viral o idiopática', 'Posinfarto, uremia, enfermedades autoinmunes, neoplasias, tuberculosis'],
@@ -77,7 +77,7 @@ export const ECG_CLINICAL = {
     conditions: ['Enfermedad renal aguda o crónica', 'IECA/ARA II, espironolactona, AINE, cotrimoxazol', 'Rabdomiólisis, lisis tumoral, cetoacidosis, insuficiencia suprarrenal'],
     symptoms: ['Con frecuencia asintomático', 'Debilidad, parestesias, parálisis'],
     signs: ['Bradicardia o arritmias', 'Puede debutar con paro cardíaco'],
-    links: ['c13-s1', 'c19-s9'],
+    links: ['c13-s1', 'c19-s9', 'c24-s12'],
   },
   hipok: {
     conditions: ['Vómitos, diarrea, sonda nasogástrica', 'Diuréticos, salbutamol, insulina', 'Hipomagnesemia, hiperaldosteronismo, parálisis periódica'],

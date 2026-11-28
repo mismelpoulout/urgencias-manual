@@ -28,7 +28,12 @@ tests/               pruebas (node --test)
 ```
 
 Al agregar o renombrar una sección, actualizar también `src/content/index.js`.
+El orden de esa lista es el del libro y `n` es el número visible; los `id` (y el nombre del archivo) son
+permanentes porque forman los enlaces publicados. El atlas de imágenes va siempre al final.
+Los enlaces de cada conducta a fármacos, imágenes, ECG y scores se declaran con `<Connections>`.
+Para citar otro capítulo usar `<ChapterRefs to={[...]}/>` en vez de escribir el número: se actualiza solo.
 Si se agregan tablas, trazados o imágenes, actualizar `bookStats` en el mismo archivo.
+
 ## Calculadoras de scores
 
 Cada score del anexo se define como datos en `src/content/scores/` (campos, puntos, tramos, conducta,
@@ -40,7 +45,7 @@ Fármacos en `src/content/drugs.js`, reglas en `src/content/interactions.js`, co
 `src/content/combos.js`. El comprobador nunca declara compatible una pareja por falta de datos.
 **Este contenido requiere validación médica y farmacéutica.**
 
-## Herramientas de turno (capítulo 23)
+## Herramientas de turno (capítulo 22)
 
 - Cronómetros de sepsis y paro: lógica en `src/lib/sepsis.js` y `src/lib/arrest.js`; se guardan en el navegador.
 - Calculadora de infusiones: `src/lib/infusion.js` y presets en `src/content/infusions.js`.

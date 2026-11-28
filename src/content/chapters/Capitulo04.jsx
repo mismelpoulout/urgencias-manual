@@ -222,10 +222,7 @@ export default function Capitulo04() {
             <p>Ceftriaxona 2 g IV c/24 h + Metronidazol 500 mg IV c/8 h</p>
           </li>
           <li>
-            <p>Omeprazol IV 80 mg en bolo, luego infusión 8 mg/h (o 40 mg IV c/12</p>
-            <ol type="a" start={8}>
-              <li></li>
-            </ol>
+            <p>Omeprazol IV 80 mg en bolo, luego infusión 8 mg/h (o 40 mg IV c/12 h)</p>
           </li>
           <li>
             <p>Sonda nasogástrica, analgesia</p>
@@ -442,7 +439,7 @@ export default function Capitulo04() {
         <Callout type="perla">
           <p>Cólico renal + fiebre es una urgencia urológica (pielonefritis obstructiva) que requiere drenaje, no solo analgesia y antibiótico.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 3: Dolor abdominal. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 4: Dolor abdominal. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales vigentes.</em></p>
       </Section>
     </>
   )

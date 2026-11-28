@@ -452,7 +452,7 @@ export default function Capitulo17() {
             <p>Antibiótico empírico de amplio espectro de inicio inmediato: Piperacilina-tazobactam 4.5 g IV c/6-8 h + Clindamicina 600-900 mg IV c/8 h (la clindamicina reduce la producción de toxinas bacterianas) + Vancomicina 15-20 mg/kg IV c/8-12 h si hay sospecha de SARM</p>
           </li>
           <li>
-            <p>Reanimación hemodinámica agresiva con cristaloides y vasopresores según necesidad (manejo como shock séptico, ver Capítulo 10-10)</p>
+            <p>Reanimación hemodinámica agresiva con cristaloides y vasopresores según necesidad (manejo como shock séptico, ver Capítulo 12)</p>
           </li>
           <li>
             <p>Derivación urinaria (sonda Foley o cistostomía) y eventual colostomía de derivación si hay compromiso anorrectal extenso</p>
@@ -464,7 +464,7 @@ export default function Capitulo17() {
         <Callout type="perla">
           <p>Un dolor perineal desproporcionado al examen físico, incluso con piel de aspecto casi normal en las primeras horas, debe hacer sospechar gangrena de Fournier — la piel puede verse engañosamente sana mientras la fascia subyacente ya está necrosada.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 13: Enfermedades más comunes del hombre en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 17: Enfermedades más comunes del hombre en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )

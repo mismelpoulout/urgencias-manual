@@ -123,7 +123,7 @@ const GROUPS = [
     ['fibrinogeno', 'Fibrinógeno', '3-4 g IV', 'Hipofibrinogenemia con sangrado', 'Trombosis', 'iv'],
     ['desmopresina', 'Desmopresina', '0,3 mcg/kg (hemostasia); 1-2 mcg (sodio)', 'Von Willebrand, diabetes insípida', 'Hiponatremia', 'iv'],
   ]],
-  ['antibioticos', 'Antibióticos', [
+  ['antibioticos', 'Antibióticos y profilaxis antitetánica', [
     ['ceftriaxona', 'Ceftriaxona', '1-2 g IV c/24 h (meningitis c/12 h)', 'Neumonía, ITU, abdomen, meningitis', 'No mezclar con calcio', 'iv betalactamico ceftriaxona'],
     ['cefazolina', 'Cefazolina', '1-2 g IV c/8 h', 'Piel, profilaxis quirúrgica', 'Alergia', 'iv betalactamico'],
     ['cefepime', 'Cefepime', '2 g IV c/8 h', 'Neutropenia febril', 'Neurotoxicidad en falla renal', 'iv betalactamico'],
@@ -143,6 +143,7 @@ const GROUPS = [
     ['ciprofloxacino', 'Ciprofloxacino', '400 mg IV c/12 h; 500 mg VO', 'ITU, abdomen', 'QT, tendones', 'iv qt inh-warfarina inh-teofilina'],
     ['cotrimoxazol', 'Cotrimoxazol', '800/160 mg VO c/12 h', 'ITU, piel', 'Hiperkalemia, alergia', 'iv inh-warfarina potasio-retiene'],
     ['linezolid', 'Linezolid', '600 mg IV/VO c/12 h', 'SAMR, enterococo resistente', 'Inhibe la MAO; mielotoxicidad', 'iv imao'],
+    ['vacuna-antitetanica', 'Vacuna antitetánica (toxoide dT)', '0,5 mL IM; en herida sucia con esquema incompleto o desconocido, asociar inmunoglobulina antitetánica 250 UI IM en otro sitio', 'Profilaxis en heridas: refuerzo si la última dosis fue hace >5 años (herida sucia) o >10 años (limpia)', 'Contraindicada si hubo anafilaxia a una dosis previa', ''],
   ]],
   ['respiratorios', 'Broncodilatadores, corticoides y antialérgicos', [
     ['salbutamol', 'Salbutamol', '2,5-5 mg nebulizado c/20 min', 'Broncoespasmo, hiperkalemia', 'Taquicardia, hipokalemia', 'agonista-beta hipokalemia'],
@@ -215,6 +216,7 @@ const GROUPS = [
     ['espironolactona', 'Espironolactona', '25-100 mg/día VO', 'Ascitis, insuficiencia cardíaca', 'Hiperkalemia', 'ahorrador-k diuretico'],
     ['ciclosilicato-zirconio', 'Ciclosilicato de zirconio', '10 g VO c/8 h', 'Hiperkalemia', 'Edema', ''],
     ['glucagon', 'Glucagón', '1 mg IM/IV', 'Hipoglicemia, intoxicación por betabloqueo', 'Vómitos', 'iv glucagon'],
+    ['manitol', 'Manitol', '0,5-1 g/kg IV en 15-20 min (2,5-5 mL/kg de solución al 20%)', 'Hipertensión intracraneal con signos de herniación', 'Evitar con hipotensión, hipovolemia o falla renal; controlar osmolaridad', 'iv'],
   ]],
   ['antidotos', 'Antídotos', [
     ['naloxona', 'Naloxona', '0,04-0,4 mg IV titulando', 'Intoxicación por opioides', 'Abstinencia; vida media corta', 'iv naloxona'],
@@ -227,6 +229,12 @@ const GROUPS = [
     ['emulsion-lipidica', 'Emulsión lipídica 20%', '1,5 mL/kg en bolo', 'Toxicidad por anestésicos locales', 'Pancreatitis', 'iv lipidos'],
     ['azul-metileno', 'Azul de metileno', '1-2 mg/kg IV', 'Metahemoglobinemia', 'Inhibe la MAO', 'iv imao azul-metileno'],
     ['deferoxamina', 'Deferoxamina', '15 mg/kg/h IV', 'Intoxicación por hierro', 'Hipotensión', 'iv'],
+    ['anticuerpos-antidigoxina', 'Anticuerpos antidigoxina (Fab)', 'Aguda sin niveles: 10-20 viales; crónica: 3-6 viales. Con niveles: viales = digoxinemia (ng/mL) × peso (kg) / 100', 'Intoxicación digitálica grave', 'Hipokalemia y reaparición de la falla cardíaca o de la FA', 'iv antidigoxina'],
+    ['ciproheptadina', 'Ciproheptadina', '12 mg VO o por sonda; luego 2 mg c/2 h si persisten los síntomas (máx. 32 mg/día)', 'Síndrome serotoninérgico', 'Solo vía enteral; sedación y efectos anticolinérgicos', 'depresor anticolinergico'],
+    ['bromocriptina', 'Bromocriptina', '2,5 mg VO o por sonda c/8 h, titular (máx. 40 mg/día)', 'Síndrome neuroléptico maligno', 'Hipotensión, vómitos, psicosis', 'cyp3a4 bromocriptina'],
+    ['piridoxina', 'Piridoxina (vitamina B6)', 'Isoniazida: 1 g IV por gramo ingerido (5 g si se desconoce); etilenglicol: 50 mg IV c/6 h', 'Convulsiones por isoniazida; coadyuvante en etilenglicol', 'Neuropatía con dosis altas repetidas', 'iv'],
+    ['levocarnitina', 'L-carnitina (levocarnitina)', '100 mg/kg IV en 30 min (máx. 6 g); luego 15 mg/kg c/4 h', 'Intoxicación por valproato con hiperamonemia o gravedad', 'Náuseas y diarrea', 'iv levocarnitina'],
+    ['etanol', 'Etanol (antídoto)', 'Carga 0,6-0,8 g/kg (≈8-10 mL/kg al 10%); mantención 66-130 mg/kg/h, meta 100-150 mg/dL', 'Metanol y etilenglicol si no hay fomepizol', 'Depresión de conciencia, hipoglicemia; medir niveles seriados', 'iv depresor etanol'],
   ]],
 ]
 

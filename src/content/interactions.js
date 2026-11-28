@@ -107,6 +107,10 @@ export const INTERACTIONS = [
   ['naloxona', 'opioide', CAUTION, 'Antagonista: revierte analgesia y puede causar abstinencia.', 'Titular hasta recuperar la ventilación.'],
   ['nitrato', 'antihipertensivo', CAUTION, 'Hipotensión aditiva.', 'Titular con monitorización.'],
 
+  ['etanol', 'fomepizol', AVOID, 'El fomepizol bloquea la eliminación del etanol: toxicidad prolongada.', 'Usar solo un antídoto; si se cambia, medir alcoholemia.'],
+  ['etanol', 'metronidazol', CAUTION, 'Posible reacción tipo disulfiram.', 'Preferir otro antianaerobio mientras se administra etanol.'],
+  ['bromocriptina', 'antidopaminergico', CAUTION, 'Acciones opuestas sobre la dopamina.', 'En el síndrome neuroléptico maligno, suspender el antipsicótico.'],
+
   // Combinaciones habituales
   ['paracetamol', 'aine', USUAL, 'Mecanismos distintos: mejor analgesia.', 'Respetar dosis máximas.'],
   ['paracetamol', 'opioide', USUAL, 'Analgesia multimodal que ahorra opioide.', 'Revisar paracetamol en combinados.'],
@@ -135,6 +139,8 @@ export const INTERACTIONS = [
   ['agonista-beta', 'corticoide', USUAL, 'Broncodilatador más antiinflamatorio.', 'Controlar potasio.'],
   ['insulina', 'glucosa', USUAL, 'Tratamiento de la hiperkalemia sin hipoglicemia.', 'Glicemia horaria.'],
   ['furosemida', 'nitroglicerina', USUAL, 'Edema pulmonar con presión adecuada.', 'Controlar presión.'],
+  ['digoxina', 'antidigoxina', USUAL, 'Antídoto específico de la digoxina.', 'Controlar potasio y ritmo; la digoxinemia total deja de ser interpretable.'],
+  ['valproato', 'levocarnitina', USUAL, 'Tratamiento de la hiperamonemia por valproato.', 'Controlar amonio y nivel de valproato.'],
   ['atropina', 'pralidoxima', USUAL, 'Intoxicación por organofosforados.', 'Titular atropina a secreciones.'],
 ]
 

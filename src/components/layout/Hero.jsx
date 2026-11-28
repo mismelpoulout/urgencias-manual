@@ -26,7 +26,7 @@ export default function Hero({ ref, searchRef, onSelect }) {
             Manual de Urgencias
           </h1>
           <p className="mb-[26px] max-w-[58ch] text-[clamp(17px,1.6vw,20px)] text-ink2">
-            Libro de bolsillo para el turno: 23 capítulos con identificación, clínica, diagnóstico y tratamiento con dosis, scores, vademécum, atlas interactivo de ECG, cronómetros y algoritmos.
+            Libro de bolsillo para el turno: 25 capítulos con identificación, clínica, diagnóstico y tratamiento con dosis, scores, vademécum, atlas interactivo de ECG, cronómetros y algoritmos.
           </p>
           <SearchBox ref={searchRef} onSelect={onSelect} big placeholder="¿Qué buscas? Ej.: hiperkalemia, rocuronio, Bell, qSOFA" shortPlaceholder="¿Qué buscas?" />
           <div className="mt-4 flex flex-wrap gap-2">

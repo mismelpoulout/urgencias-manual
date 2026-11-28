@@ -455,7 +455,7 @@ export default function Capitulo16() {
         <Callout type="perla">
           <p>La profilaxis de VIH y la anticoncepción de emergencia son tiempo-dependientes — deben ofrecerse de inmediato en la primera atención, sin esperar la denuncia ni la resolución de los aspectos legales del caso.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 12: Enfermedades más comunes de la mujer en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso, edad gestacional e interacciones de la paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 16: Enfermedades más comunes de la mujer en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso, edad gestacional e interacciones de la paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )

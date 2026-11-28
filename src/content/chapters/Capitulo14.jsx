@@ -491,7 +491,7 @@ export default function Capitulo14() {
         <Callout type="perla">
           <p>En un paciente joven con dolor cervical o cefalea unilateral asociado a un síndrome de Horner parcial (sin anhidrosis), sospechar disección carotídea incluso sin trauma evidente ni déficit neurológico aún establecido.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 11: Accidente cerebrovascular en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL (Código ACV) vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 14: Accidente cerebrovascular en la urgencia. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL (Código ACV) vigentes.</em></p>
       </Section>
     </>
   )

@@ -1,6 +1,6 @@
 import { CRITICAL, HIGH, LOW, MODERATE, bands, scale, yes } from '../../lib/scores.js'
 
-const SUICIDE = { chapters: ['c18-s9'], drugs: [] }
+const SUICIDE = { chapters: ['c25-s18', 'c18-s9'], drugs: [] }
 const AGITATION = { chapters: ['c10-s5', 'c18-s2'], drugs: ['haloperidol', 'quetiapina', 'lorazepam', 'midazolam'] }
 
 const upTo = (n) => Array.from({ length: n + 1 }, (_, i) => String(i))

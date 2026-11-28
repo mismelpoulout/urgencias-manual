@@ -10,6 +10,8 @@ const LINKS = [
   ['#c13-s1', 'Hiperkalemia', 'Calcio, insulina-glucosa, salbutamol'],
   ['#c13-s6', 'Hiponatremia grave', 'NaCl 3% y límites de corrección'],
   ['#c15-s1', '¿Central o periférica?', 'Parálisis facial en 5 segundos'],
+  ['#c24-s3', 'Politraumatizado', 'xABCDE, shock y destino'],
+  ['#c25-s1', 'Intoxicaciones', 'Antídotos y conducta suicida'],
   ['#c20-s1', 'Atlas de ECG', '16 ritmos animados con sonido'],
   ['#ca-s1', 'Calculadoras de scores', `${SCORES.length} scores con conducta sugerida`],
   ['#c22-analgesicos', 'Vademécum', `${DRUGS.length} fármacos por grupo`],

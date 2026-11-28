@@ -18,7 +18,7 @@ export default function PrintFront() {
             <path d={coverTrace} fill="none" stroke="#c8102e" strokeWidth="2" />
           </svg>
         </div>
-        <p className="text-[10pt] text-[#333]">Edición noviembre 2026 · 23 capítulos y anexo de scores clínicos. Documento de apoyo: no reemplaza el juicio clínico ni los protocolos institucionales y normas MINSAL vigentes.</p>
+        <p className="text-[10pt] text-[#333]">Edición noviembre 2026 · 25 capítulos y anexo de scores clínicos. Documento de apoyo: no reemplaza el juicio clínico ni los protocolos institucionales y normas MINSAL vigentes.</p>
       </section>
       <section className="break-after-page">
         <h2 className="mb-[6mm] font-serif text-[20pt] font-semibold">Índice</h2>

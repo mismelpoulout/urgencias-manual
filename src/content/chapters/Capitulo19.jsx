@@ -404,7 +404,7 @@ export default function Capitulo19() {
         <Callout type="perla">
           <p>El ECG con bajo voltaje y alternancia eléctrica en un paciente hipotenso con yugulares ingurgitadas debe hacer pensar de inmediato en taponamiento y activar ecografía a la cabecera sin demora.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 15: Electrocardiografía de urgencia. La interpretación del ECG siempre debe correlacionarse con la clínica del paciente y, cuando sea posible, con trazados previos. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso, comorbilidad y protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 19: Electrocardiografía de urgencia. La interpretación del ECG siempre debe correlacionarse con la clínica del paciente y, cuando sea posible, con trazados previos. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso, comorbilidad y protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )

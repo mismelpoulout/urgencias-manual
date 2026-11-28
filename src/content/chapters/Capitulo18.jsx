@@ -488,7 +488,7 @@ export default function Capitulo18() {
         <Callout type="perla">
           <p>El adulto mayor rara vez "amenaza" antes de un intento suicida — la desesperanza silenciosa y el aislamiento son señales de alarma más frecuentes que la verbalización directa.</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 14: Patologías más frecuentes del adulto mayor en urgencia. Contenido alineado con las orientaciones técnicas del Programa Nacional de Salud del Adulto Mayor y normas de urgencia del MINSAL. Las dosis son de referencia general y deben ajustarse a función renal/hepática, fragilidad, polifarmacia y protocolos institucionales vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 18: Patologías más frecuentes del adulto mayor en urgencia. Contenido alineado con las orientaciones técnicas del Programa Nacional de Salud del Adulto Mayor y normas de urgencia del MINSAL. Las dosis son de referencia general y deben ajustarse a función renal/hepática, fragilidad, polifarmacia y protocolos institucionales vigentes.</em></p>
       </Section>
     </>
   )

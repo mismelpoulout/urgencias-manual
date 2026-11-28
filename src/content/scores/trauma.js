@@ -1,8 +1,8 @@
 import { CRITICAL, HIGH, LOW, MODERATE, bands, number, scale, yes } from '../../lib/scores.js'
 
 const present = (key, label) => scale(key, label, ['Ausente', 'Presente'])
-const TRAUMA = { chapters: ['c11-s1'], drugs: ['acido-tranexamico', 'fentanilo', 'ketamina'] }
-const SPINE = { chapters: ['c11-s6'], drugs: ['fentanilo', 'paracetamol'] }
+const TRAUMA = { chapters: ['c24-s6', 'c11-s1'], drugs: ['acido-tranexamico', 'fentanilo', 'ketamina'] }
+const SPINE = { chapters: ['c24-s11', 'c11-s6'], drugs: ['fentanilo', 'paracetamol'] }
 const ais = (key, region) =>
   scale(key, region, ['Sin lesión', '1 · Menor', '2 · Moderada', '3 · Grave', '4 · Severa', '5 · Crítica', '6 · Incompatible con la vida'])
 const imaging = (needed, reason) =>

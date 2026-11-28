@@ -22,10 +22,14 @@ import Capitulo20 from './chapters/Capitulo20.jsx'
 import Capitulo21 from './chapters/Capitulo21.jsx'
 import Capitulo22 from './chapters/Capitulo22.jsx'
 import Capitulo23 from './chapters/Capitulo23.jsx'
+import Capitulo24 from './chapters/Capitulo24.jsx'
+import Capitulo25 from './chapters/Capitulo25.jsx'
 import Anexo from './chapters/Anexo.jsx'
 import { DRUG_GROUPS } from './drugs.js'
 
 export const chapters = [
+  // El orden de esta lista es el del libro y "n" es el número visible. Los "id" son anclas
+  // publicadas (enlaces y marcadores) y no se renumeran. El atlas de imágenes va siempre al final.
   {
     id: "cap-1",
     n: "1",
@@ -380,23 +384,8 @@ export const chapters = [
     ],
   },
   {
-    id: "cap-20",
-    n: "20",
-    title: "Atlas de imágenes: ECG, radiografía, TAC y laboratorio",
-    isNew: true,
-    Content: Capitulo20,
-    sections: [
-      { id: "c20-s1", title: "1. Electrocardiogramas: ritmos y patrones (trazados ilustrativos)" },
-      { id: "c20-s2", title: "2. Electrocardiogramas reales" },
-      { id: "c20-s3", title: "3. Radiografía de tórax" },
-      { id: "c20-s4", title: "4. Tomografía computada" },
-      { id: "c20-s5", title: "5. Laboratorio: casos ilustrativos para interpretar" },
-      { id: "c20-s6", title: "6. Autoevaluación: identificar ritmos" },
-    ],
-  },
-  {
     id: "cap-21",
-    n: "21",
+    n: "20",
     title: "Resumen importante: abordaje integral del paciente en urgencia (Fases 1, 2 y 3)",
     isNew: false,
     Content: Capitulo21,
@@ -409,7 +398,7 @@ export const chapters = [
   },
   {
     id: "cap-22",
-    n: "22",
+    n: "21",
     title: "Vademécum: fármacos, combinaciones y mezclas",
     isNew: true,
     Content: Capitulo22,
@@ -421,7 +410,7 @@ export const chapters = [
   },
   {
     id: "cap-23",
-    n: "23",
+    n: "22",
     title: "Herramientas de turno: cronómetros, infusiones y algoritmos",
     isNew: true,
     Content: Capitulo23,
@@ -450,10 +439,77 @@ export const chapters = [
       { id: "ca-s7", title: "Generales y transversales (5 scores)" },
     ],
   },
+  {
+    id: "cap-24",
+    n: "23",
+    title: "Politraumatizado: manejo y conducta prehospitalaria y hospitalaria",
+    isNew: true,
+    Content: Capitulo24,
+    sections: [
+      { id: "c24-s1", title: "1. Definición, gravedad y criterios de centro de trauma" },
+      { id: "c24-s2", title: "2. Prehospitalario: escena, triage y comunicación" },
+      { id: "c24-s3", title: "3. Prehospitalario: evaluación y manejo xABCDE" },
+      { id: "c24-s4", title: "4. Conducta prehospitalaria y traslado" },
+      { id: "c24-s5", title: "5. Hospitalario: recepción y revisión primaria" },
+      { id: "c24-s6", title: "6. Shock hemorrágico y reanimación de control de daños" },
+      { id: "c24-s7", title: "7. Revisión secundaria e imágenes" },
+      { id: "c24-s8", title: "8. Traumatismo encefalocraneano (TEC)" },
+      { id: "c24-s9", title: "9. Trauma torácico" },
+      { id: "c24-s10", title: "10. Trauma abdominal y pélvico" },
+      { id: "c24-s11", title: "11. Columna y médula espinal" },
+      { id: "c24-s12", title: "12. Extremidades, aplastamiento y quemaduras" },
+      { id: "c24-s13", title: "13. Poblaciones especiales" },
+      { id: "c24-s14", title: "14. Conducta definitiva, destino y evolución" },
+    ],
+  },
+  {
+    id: "cap-25",
+    n: "24",
+    title: "Intoxicaciones y autólisis fallidas: clínica, manejo, tratamiento, conducta y evolución",
+    isNew: true,
+    Content: Capitulo25,
+    sections: [
+      { id: "c25-s1", title: "1. Enfoque inicial del paciente intoxicado" },
+      { id: "c25-s2", title: "2. Toxíndromes" },
+      { id: "c25-s3", title: "3. Descontaminación, eliminación y antídotos" },
+      { id: "c25-s4", title: "4. Electrocardiograma en el intoxicado" },
+      { id: "c25-s5", title: "5. Paracetamol" },
+      { id: "c25-s6", title: "6. Benzodiacepinas e hipnóticos" },
+      { id: "c25-s7", title: "7. Antidepresivos tricíclicos" },
+      { id: "c25-s8", title: "8. ISRS, IRSN y antipsicóticos" },
+      { id: "c25-s9", title: "9. Litio y anticonvulsivantes" },
+      { id: "c25-s10", title: "10. Opioides" },
+      { id: "c25-s11", title: "11. Betabloqueadores, calcioantagonistas y digoxina" },
+      { id: "c25-s12", title: "12. Salicilatos, AINE, hipoglicemiantes y anticoagulantes" },
+      { id: "c25-s13", title: "13. Alcoholes" },
+      { id: "c25-s14", title: "14. Cocaína, anfetaminas y otros estimulantes" },
+      { id: "c25-s15", title: "15. Plaguicidas: organofosforados, carbamatos y paraquat" },
+      { id: "c25-s16", title: "16. Gases tóxicos y cáusticos" },
+      { id: "c25-s17", title: "17. Autólisis fallida por métodos no tóxicos" },
+      { id: "c25-s18", title: "18. Conducta ante el intento de autólisis: riesgo, destino y seguimiento" },
+    ],
+  },
+  {
+    id: "cap-20",
+    n: "25",
+    title: "Atlas de imágenes: ECG, radiografía, TAC y laboratorio",
+    isNew: true,
+    Content: Capitulo20,
+    sections: [
+      { id: "c20-s1", title: "1. Electrocardiogramas: ritmos y patrones (trazados ilustrativos)" },
+      { id: "c20-s2", title: "2. Electrocardiogramas reales" },
+      { id: "c20-s3", title: "3. Radiografía de tórax" },
+      { id: "c20-s4", title: "4. Tomografía computada" },
+      { id: "c20-s5", title: "5. Laboratorio: casos ilustrativos para interpretar" },
+      { id: "c20-s6", title: "6. Autoevaluación: identificar ritmos" },
+    ],
+  },
 ]
 
-// 39 tablas en los capítulos más una por grupo del vademécum
-export const bookStats = { tables: 39 + DRUG_GROUPS.length, media: 46 }
+// 54 tablas en los capítulos más una por grupo del vademécum
+export const bookStats = { tables: 54 + DRUG_GROUPS.length, media: 48 }
+
+export const chapterNumber = (sectionId) => chapters.find((c) => c.sections.some((s) => s.id === sectionId)).n
 
 export function sectionLabel(id) {
   for (const c of chapters) {

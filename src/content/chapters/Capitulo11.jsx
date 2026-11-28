@@ -493,7 +493,7 @@ export default function Capitulo11() {
         <Callout type="perla">
           <p>Cuando un shock no responde como se espera al tratamiento dirigido a la causa inicial, la pregunta correcta no es "qué más dar del mismo tratamiento" sino "qué otro mecanismo de shock podría estar coexistiendo".</p>
         </Callout>
-        <p><em>Manual de bolsillo — Capítulo 10: Tipos de shock. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
+        <p><em>Manual de bolsillo — Capítulo 11: Tipos de shock. Las dosis son de referencia general y deben ajustarse a función renal/hepática, peso e interacciones del paciente, y a los protocolos institucionales y normas MINSAL vigentes.</em></p>
       </Section>
     </>
   )
